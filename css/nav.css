@@ -88,23 +88,25 @@
 @media only screen and (max-width: 600px) {
     #mainNav{
         display: inline-block;
-        width: 100%;
+        width: 100vw;
         height: 90vh;
         background-color: #161719e0;
         position: fixed;
         top: initial;
-        bottom: -100%;
+        bottom: -100vh;
+        left:0;
         margin-top: 0;
-        padding-top: 25%;
+        padding-top: 10vh;
         z-index: 999;
     }
     #mobileNavButton{
         background-color: #161719e0;
+        display: inline-block;
         position: absolute;
-        top:-8%;
+        top:-8vh;
         left:0;
         width: 100vw;
-        height: 8%;
+        height: 8vh;
         background-image: url("../img/chevron-compact-up.svg");
         background-repeat: no-repeat;
         background-size: contain;
