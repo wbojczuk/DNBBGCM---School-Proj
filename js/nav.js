@@ -13,6 +13,7 @@ const navObj = {
     isDropped: false,
     init: ()=>{
         const mainNav = document.getElementById("mainNav");
+        const bodyElem = document.getElementsByTagName("body")[0];
 
         // Create Duplicate Nav
         const mainNav2 = mainNav.cloneNode(true);
@@ -103,14 +104,13 @@ const navObj = {
         // Mobile Close Button
         const mobileNavExit = document.getElementById("mobileNavExit");
         const mobileNavButton = document.getElementById("mobileNavButton");
-        let mobileNavDown = true;
         mobileNavExit.addEventListener("click", ()=>{
                 mainNav.style.animation = "navSlideDown 0.8s forwards";
-                mobileNavDown = false;
+                bodyElem.style.overflowY = "auto";
         });
         mobileNavButton.addEventListener("click", ()=>{
             mainNav.style.animation = "navSlideUp 1s forwards";
-            mobileNavDown = true;
+            bodyElem.style.overflowY = "hidden";
         });
     }
 }
