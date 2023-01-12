@@ -106,10 +106,12 @@ const navObj = {
         const mobileNavButton = document.getElementById("mobileNavButton");
         mobileNavExit.addEventListener("click", ()=>{
                 mainNav.style.animation = "navSlideDown 0.8s forwards";
+                mainNav.style.overflowY = "auto";
                 bodyElem.style.overflowY = "auto";
         });
         mobileNavButton.addEventListener("click", ()=>{
             mainNav.style.animation = "navSlideUp 1s forwards";
+            mainNav.style.overflowY = "hidden";
             bodyElem.style.overflowY = "hidden";
         });
     }
