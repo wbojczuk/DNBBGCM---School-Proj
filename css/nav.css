@@ -13,6 +13,7 @@
     top:2vh;
     justify-content: center;
     margin-top: 3.5vh;
+    z-index: 999;
 }
 #mainNav2{
     display: none;
@@ -20,6 +21,7 @@
     width: 100%;
     top:0;
     justify-content: center;
+    z-index: 999;
     margin-top: 0;
     padding: 0.8vw 0;
     background-color: #161719de;
