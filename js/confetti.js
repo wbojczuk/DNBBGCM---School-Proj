@@ -9,8 +9,8 @@
  
  */
 
-//  I created this framework in 2022 to make rendering confetti-like particles easy
-/*
+/* I created this framework in 2022 to make rendering confetti-like particles easy
+
 METHODS
 confettiAnim.confettiAnim(elem) - Starts particle rendering relative to elem
 confettiAnim.confettiHandler(event) - Sends event.target to renderer if renderer is ready.
@@ -43,7 +43,6 @@ const confettiAnim = {
             position: absolute;
             
         }
-        
         .as-confetti-wrapper{
             position: absolute;
             top:0;

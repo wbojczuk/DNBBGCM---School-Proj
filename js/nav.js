@@ -12,7 +12,8 @@ const navObj = {
     isFixed: false,
     isDropped: false,
     init: ()=>{
-        const mainNav = document.getElementById("mainNav");
+        const mainNav = document.createElement("nav");
+        mainNav.id = "mainNav";
 
         // Create Duplicate Nav
         const mainNav2 = mainNav.cloneNode(true);
@@ -103,7 +104,6 @@ const navObj = {
         // Mobile Close Button
         const mobileNavExit = document.getElementById("mobileNavExit");
         const mobileNavButton = document.getElementById("mobileNavButton");
-        let mobileNavDown = true;
         mobileNavExit.addEventListener("click", ()=>{
                 mainNav.style.animation = "navSlideDown 0.8s forwards";
                 mobileNavDown = false;
