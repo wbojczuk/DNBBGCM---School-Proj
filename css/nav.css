@@ -68,6 +68,7 @@
 /* Hover Box */
 .dropdown-link ul::after{
     content: '';
+    cursor: default;
     display: inline-block;
     position: absolute;
     width: 120%;
