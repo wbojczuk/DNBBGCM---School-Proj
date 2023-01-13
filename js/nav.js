@@ -12,8 +12,7 @@ const navObj = {
     isFixed: false,
     isDropped: false,
     init: ()=>{
-        const mainNav = document.createElement("nav");
-        mainNav.id = "mainNav";
+        const mainNav = document.getElementById("mainNav");
 
         // Create Duplicate Nav
         const mainNav2 = mainNav.cloneNode(true);
