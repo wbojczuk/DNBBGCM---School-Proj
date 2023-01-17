@@ -106,26 +106,75 @@
         height: 80vh;
         background-color: #161719e0;
         position: fixed;
-        top: initial;
-        bottom: -100vh;
-        left:0;
+        top: 6vh;
+        left: -100vw;
         margin-top: 0;
-        padding-top: 20vh;
-        z-index: 999;
+        padding-top: 14vh;
+        z-index: 998;
+        transition: 0.7s left ease-in-out;
     }
-    #mobileNavButton{
+    #mobileNav{
         background-color: #161719e0;
-        display: inline-block;
-        position: absolute;
-        top:-8vh;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top:0;
         left:0;
         width: 100vw;
-        height: 8vh;
-        background-image: url("../img/chevron-compact-up.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        height: 6vh;
+        z-index: 999;
     }
+    #mobileNavLogo{
+        display: inline-block;
+        height: 80%;
+        margin-right: 5vw;
+    }
+    /* Hamburger Menu */
+    #mobileNavMenu{
+        display: inline-block;
+        height: 60%;
+        margin-left: 2vw;
+        aspect-ratio: 1.3/1;
+        position: relative;
+    }
+    #mobileNavMenu span{
+        display: inline-block;
+        width: 100%;
+        height: 10%;
+        position: absolute;
+        background-color: rgb(232,232,232);
+        border: 0px solid transparent;
+        border-radius: 10px;
+        left:0;
+    }
+    #mobileNavMenu span:nth-child(1){
+        top:0;
+        transition: 0.3s transform ease-in-out, 0.3s top ease-in-out;
+    }
+    #mobileNavMenu span:nth-child(2){
+        top: 45%;
+        width: 100%;
+        transition: 0.3s opacity ease-in-out, 0.3s width ease-in-out;
+    }
+    #mobileNavMenu span:nth-child(3){
+        bottom: 0;
+        transition: 0.3s transform ease-in-out, 0.3s bottom ease-in-out;
+    }
+
+    #mobileNavMenu.active span:nth-child(1){
+        transform: rotate(45deg);
+        top: 45%;
+    }
+    #mobileNavMenu.active span:nth-child(2){
+        opacity: 0;
+        width: 0;
+    }
+    #mobileNavMenu.active span:nth-child(3){
+        transform: rotate(-45deg);
+        bottom: 45%;
+    }
+
     #mainNav2{
         visibility: hidden;
     }
@@ -169,21 +218,5 @@
     .activePageLink{
         border-bottom: none;
         background-color: #494b4ee0;
-    }
-    @keyframes navSlideDown {
-        0%{
-            bottom: 0;
-        }
-        100%{
-            bottom: -100vh;
-        }
-    }
-    @keyframes navSlideUp {
-        0%{
-            bottom: -100vh;
-        }
-        100%{
-            bottom: 0;
-        }
     }
 }

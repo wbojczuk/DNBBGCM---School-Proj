@@ -10,10 +10,10 @@
  const navObj = {
      isFixed: false,
      isDropped: false,
+     mobileOpen: false,
      init: ()=>{
          const mainNav = document.getElementById("mainNav");
          mainNav.insertAdjacentHTML("afterBegin", `
-         <div class="mobile" id="mobileNavButton"></div>
             <a id="homeLink" href="./index.html">Home</a>
             <a id="galleryLink" href="./gallery.html">Gallery</a>
             <a id="scheduleLink" href="">Schedule</a>
@@ -38,7 +38,6 @@
             <a id="productsLink" href="http://www.daisy.com/">Products</a>
             <a id="contactLink" href="">Contact</a>
             <a id="pastWinnersLink" href="#">Past Winners</a>
-            <div id="mobileNavExit" class="mobile"></div>
          `);
          const bodyElem = document.getElementsByTagName("body")[0];
  
@@ -116,16 +115,21 @@
              }
          });
  
-         // Mobile Close Button
-         const mobileNavExit = document.getElementById("mobileNavExit");
-         const mobileNavButton = document.getElementById("mobileNavButton");
-         mobileNavExit.addEventListener("click", ()=>{
-                 mainNav.style.animation = "navSlideDown 0.8s forwards";
-                 bodyElem.style.overflowY = "auto";
-         });
-         mobileNavButton.addEventListener("click", ()=>{
-             mainNav.style.animation = "navSlideUp 1s forwards";
-             bodyElem.style.overflowY = "hidden";
+         // Mobile Hamburger Menu
+         const mobileNavMenu = document.getElementById("mobileNavMenu");
+         mobileNavMenu.addEventListener("click", ()=>{
+            // if Isn't open
+            if(!navObj.mobileOpen){
+                mobileNavMenu.classList.add("active");
+                navObj.mobileOpen = !navObj.mobileOpen;
+                mainNav.style.left = "0";
+                bodyElem.style.overflowY = "hidden";
+            }else{
+                mobileNavMenu.classList.remove("active");
+                navObj.mobileOpen = !navObj.mobileOpen;
+                mainNav.style.left = "-100vw";
+                bodyElem.style.overflowY = "auto";
+            }
          });
      }
  }
