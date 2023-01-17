@@ -111,7 +111,7 @@
         margin-top: 0;
         padding-top: 14vh;
         z-index: 998;
-        transition: 0.7s left ease-in-out;
+        transition: 0.5s left ease-in-out;
     }
     #mobileNav{
         background-color: #161719e0;
