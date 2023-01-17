@@ -351,4 +351,7 @@ footer{
     footer{
         padding-bottom: 9vh;
     }
+    #secondaryLogo{
+       display: none;
+    }
 }

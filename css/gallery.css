@@ -101,6 +101,9 @@
 }
 /* Mobile Styles */
 @media only screen and (max-width: 600px) {
+    #galleryHeader{
+        margin-top: 20vh;
+    }
     #galleryContainer{
         width: 100%;
         margin-top: 2vh;
