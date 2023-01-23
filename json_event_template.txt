@@ -1,0 +1,14 @@
+All events created for the calendar/Schedule are stored in "eventdata.json" in the below form.
+
+{
+        "month": "April",
+        "day": 19,
+        "events": [
+            {
+		"id": 2,
+                "startTime": "1:00pm",
+                "endTime": "2:00pm",
+                "eventDescription": "Pro Shop open, Rogers Convention Center"
+            }
+        ]
+  }

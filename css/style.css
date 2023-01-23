@@ -21,7 +21,8 @@ html{
 body{
     position: relative;
     overflow-x: hidden;
-    background: linear-gradient(to left, #c9c9c9, #0b1824); 
+    /* background: linear-gradient(to left, #c9c9c9, #0b1824);  */
+    background-color: #5f676f;
     min-height: 100vh;
     padding-bottom: 10vh;
 }

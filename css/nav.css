@@ -86,7 +86,7 @@
     transform: translateY(30%) translateX(-85%);
 }
 .dropdown-link ul.two{
-    transform: translateY(43%) translateX(-85%);
+    transform: translateY(43%) translateX(-65%);
 }
 .dropdown-link ul li{
     padding: 0.2vw 0;

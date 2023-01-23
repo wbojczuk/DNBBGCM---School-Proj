@@ -16,12 +16,12 @@
          mainNav.insertAdjacentHTML("afterBegin", `
             <a id="homeLink" href="./index.html">Home</a>
             <a id="galleryLink" href="./gallery.html">Gallery</a>
-            <a id="scheduleLink" href="">Schedule</a>
+            <a id="scheduleLink" href="./schedule.html">Schedule</a>
             <a class="dropdown-link" id="informationLink">
                 Information
                 <ul class="four">
+                    <li>General</li>
                     <li>How to qualify</li>
-                    <li>Past Locations</li>
                     <li>FAQ</li>
                     <li>Hotels/Housing</li>
                 </ul>
@@ -37,7 +37,13 @@
             <a id="resultsLink" href="./results.html">Results</a>
             <a id="productsLink" href="http://www.daisy.com/">Products</a>
             <a id="contactLink" href="">Contact</a>
-            <a id="pastWinnersLink" href="#">Past Winners</a>
+            <a id="archivedLink" href="#" class="dropdown-link">
+            Archived
+            <ul class="two">
+                <li>Past Winners</li>
+                <li>Past Locations</li>
+            </ul>
+            </a>
          `);
          const bodyElem = document.getElementsByTagName("body")[0];
  
