@@ -3,10 +3,11 @@
 const calendarObj = {
     // ONLY ONE YEAR MAY BE PRESENT AT A TIME
     currentYear: new Date().getFullYear(),
+    eventExpanded: false,
+    eventExpandedHover: false,
     plannedEvents: [
         /*
         ****TEMPLATE****
-        // Months are NOT case sensitive
 
         {
         month: "April",
@@ -35,6 +36,21 @@ const calendarObj = {
         const eventDaysLength = calendarObj.plannedEvents.length;
         const eventMonths = [];
 
+        // Auto Cle Event Expanded Listeners
+        const eventExpandedExit = document.getElementById('eventExpandedExit');
+        eventExpandedExit.addEventListener("click", calendarObj.expandEventsExit);
+        eventExpandedExit.addEventListener("mouseenter", ()=>{
+            calendarObj.eventExpandedHover = true;
+        });
+        eventExpandedExit.addEventListener("mouseleave", ()=>{
+            calendarObj.eventExpandedHover = false;
+        });
+        window.addEventListener("click", ()=>{
+            if(!calendarObj.eventExpandedHover && calendarObj.eventExpanded == true){
+                calendarObj.expandEventsExit();
+            }
+        });
+
         String.prototype.wordsToUpperCase = function(){
             return(this.replace(/[a-z]{1,}(?!\w)/gi, (match)=>{
             let tempStr = match.slice(1).toLowerCase();
@@ -54,6 +70,7 @@ const calendarObj = {
         let curMonth = Math.min(...eventMonths);
         let curYear = calendarObj.currentYear;
         // Populate Calender
+        
         if(calendarObj.plannedEvents.length !== 0){
             calendarObj.renderCalendar(curYear, curMonth);
         }else{
@@ -76,7 +93,8 @@ const calendarObj = {
             curYear = newDate.getFullYear();
             calendarObj.renderCalendar(curYear, curMonth);
         });
-        document.getElementById('eventExpandedExit').addEventListener("click", calendarObj.expandEventsExit);
+        
+        
         
     },
     renderCalendar: (year, month)=>{
@@ -133,6 +151,8 @@ const calendarObj = {
                     curDay.setAttribute("data-day", (i + 1));
                     curDay.setAttribute("data-month", month);
                     curDay.addEventListener("click", calendarObj.expandEvents);
+                    curDay.addEventListener("mouseenter", ()=>{calendarObj.eventExpandedHover = true;});
+                    curDay.addEventListener("mouseleave", ()=>{calendarObj.eventExpandedHover = false;});
                 }
             });
 
@@ -145,6 +165,7 @@ const calendarObj = {
         }
     },
     expandEvents: (evt)=>{
+        
         let dayObj;
         const day = evt.target.dataset.day;
         const month = evt.target.dataset.month;
@@ -186,9 +207,12 @@ const calendarObj = {
         }
         eventExpandedContent.append(eventExpandedFragment);
         eventExpanded.style.display = "inline-block";
+        calendarObj.eventExpanded = true;
     },
     expandEventsExit: (evt)=>{
         document.getElementById('eventExpanded').style.display = "none";
+    calendarObj.eventExpanded = false;
     }
+    
 }
 calendarObj.init();

@@ -70,7 +70,7 @@
 
             <div>
             <label for="eventDate">Event Date: </label>
-            <input type="date" name="eventDate" id="eventDate" required value="<?php echo("$current_year-$current_month-$current_day"); ?>">
+            <input disabled type="date" name="eventDate" id="eventDate" required value="<?php echo("$current_year-$current_month-$current_day"); ?>">
             </div>
 
             <div>
