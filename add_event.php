@@ -13,6 +13,17 @@
 </head>
 <body>
     <?php
+    function time_str_to_input($time){
+        $h_and_m = explode(":", str_replace(["am", "pm"], "", $time));
+        $hours = (int)$h_and_m[0];
+       if(preg_match("/pm/",$time) == true){
+        $hours += 12;
+       }
+       if($hours < 10){
+        $hours = "0$hours";
+       }
+        return "$hours:{$h_and_m[1]}";
+    }
     if(!isset($_SESSION["login"])){
         echo("<div id='jsReload' data-filename='./manage_events.php'></div>");
     }else{
@@ -46,11 +57,13 @@
                             $editing_event_index = $o;
                             $current_start_time = $current_event->startTime;
                             $current_end_time = $current_event->endTime;
+                            time_str_to_input($current_end_time);
                             $current_description = $current_event->eventDescription;
                         }
                     }
                 }
             }
+            
 ?>
     <div class="center" style="height: 100vh;">
         <form action="./manage_events.php?action=editevent" method="post" id="addEventForm">
@@ -61,10 +74,10 @@
             </div>
 
             <div>
-            <label for="eventName">Event Times: </label>
-            <input type="text" name="eventTime1" id="eventTime1" placeholder="11:00am" required value="<?php echo($current_start_time); ?>">
-            TO
-            <input type="text" name="eventTime2" id="eventTime2" placeholder="1:00pm" required value="<?php echo($current_end_time); ?>">
+            <label for="eventName">Event Times: </label><br class="mobile">
+            <input type="time" name="eventTime1" id="eventTime1" required value="<?php echo(time_str_to_input($current_start_time)); ?>"><br class="mobile">
+            TO<br class="mobile">
+            <input type="time" name="eventTime2" id="eventTime2"  required value="<?php echo(time_str_to_input($current_end_time)); ?>">
             </div>
 
             <div>
@@ -77,10 +90,18 @@
             <input type="hidden" name="dayindex" value="<?php echo($editing_day_index); ?>">
 
             <div class="center">
-                <input type="submit" value="Save Event">
+            <button type="button" class="button-two" id="cancelEventEdit">Cancel</button>
+                <input type="submit" value="Save Event" class="button-one">
             </div>
         </form>
     </div>
+    <script>
+    document.getElementById("cancelEventEdit").addEventListener("click", ()=>{
+        if(confirm("Exiting will discard unsaved changes.")){
+            window.location.href= "./manage_events.php";
+        }
+    });
+</script>
 <?php
     //IF YOU'RE CREATING AN EVENT 
         }else{
@@ -91,14 +112,14 @@
 
             <div>
             <label for="eventDate">Event Date: </label>
-            <input type="date" name="eventDate" id="eventDate" required>
+            <input type="date" name="eventDate" id="eventDate" required value="<?php echo(date('Y-m-d')); ?>">
             </div>
 
             <div>
-            <label for="eventName">Event Times: </label>
-            <input type="text" name="eventTime1" id="eventTime1" placeholder="11:00am" required>
-            TO
-            <input type="text" name="eventTime2" id="eventTime2" placeholder="1:00pm" required>
+            <label for="eventName">Event Times: </label><br class="mobile">
+            <input type="time" name="eventTime1" id="eventTime1" value="08:00" required><br class="mobile">
+            TO <br class="mobile">
+            <input type="time" name="eventTime2" id="eventTime2" value="13:00" required>
             </div>
 
             <div>
@@ -109,14 +130,23 @@
             <input type="hidden" name="id" value="<?php echo(rand(1, getrandmax())) ?>">
 
             <div class="center">
-                <input type="submit" value="Add Event">
+                <button  class="button-two" id="cancelEventEdit">Cancel</button>
+                <input type="submit" value="Add Event" class="button-one">
             </div>
         </form>
     </div>
+    <script>
+    document.getElementById("cancelEventEdit").addEventListener("click", ()=>{
+        if(confirm("Exiting will discard unsaved changes.")){
+            window.location.href= "./manage_events.php";
+        }
+    });
+</script>
     <?php
     }
 
 }
 ?>
+
 </body>
 </html>

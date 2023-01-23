@@ -24,6 +24,7 @@ if(!isset($_SESSION["login"])){
             echo("<div id='jsReload' data-filename='./manage_events.php'></div>");
         }else{
             ?>
+            <div class="center"><h1>DNBBGCM Event Manager</h1></div>
         <div class="center" style="height: 100vh;">
         <div>
         <form action="./manage_events.php?action=login" method="post">
@@ -40,11 +41,12 @@ if(!isset($_SESSION["login"])){
         }
     }else{
     ?>
-    <div class="center" style="height: 100vh;">
+    <div class="center" ><h1 style=" display:inline-block;position:relative; top: 10vh;">DNBBGCM Event Manager</h1></div>
+    <div class="center" style="height: 100vh; width:100%; position:fixed;top:0;left:0;">
 <form action="./manage_events.php?action=login" method="post">
-        <label for="loginPass">Please Enter Password: </label>
+        <label for="loginPass">Please Enter Password: </label><br class="mobile">
         <input type="password" id="loginPass" name="loginPass"> 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button-two">
     </form>
     </div>
     <?php
@@ -52,7 +54,7 @@ if(!isset($_SESSION["login"])){
 }else{
 
 ?>
-<body style="background: #083158;">
+<body>
     <div class="center">
         <a href="./add_event.php" id="addEventButton" class="button-one">Add Event</a>
     </div>
@@ -105,8 +107,8 @@ if(!isset($_SESSION["login"])){
                 $cur_evt_key = count($content[$existing_day_index]->events);
                 $content[$existing_day_index]->events[$cur_evt_key] = new stdClass();
                 $current_event = $content[$existing_day_index]->events[$cur_evt_key];
-                $current_event->startTime = $_POST["eventTime1"];
-                $current_event->endTime = $_POST["eventTime2"];
+                $current_event->startTime = get_formatted_times($_POST["eventTime1"]);
+                $current_event->endTime = get_formatted_times($_POST["eventTime2"]);
                 $current_event->eventDescription = $_POST["eventDesc"];
                 $current_event->id = $_POST["id"];
                 
@@ -117,8 +119,8 @@ if(!isset($_SESSION["login"])){
                 $content[$current_elem]->month = $monthNames[$month];
                 $content[$current_elem]->events = array();
                 $content[$current_elem]->events[0] = new stdClass();
-                $content[$current_elem]->events[0]->startTime = $_POST["eventTime1"];
-                $content[$current_elem]->events[0]->endTime = $_POST["eventTime2"];
+                $content[$current_elem]->events[0]->startTime = get_formatted_times($_POST["eventTime1"]);
+                $content[$current_elem]->events[0]->endTime = get_formatted_times($_POST["eventTime2"]);
                 $content[$current_elem]->events[0]->eventDescription = $_POST["eventDesc"];
                 $content[$current_elem]->events[0]->id = $_POST["id"];
             }
@@ -131,8 +133,8 @@ if(!isset($_SESSION["login"])){
                 $content = file_get_contents("./js/eventdata.json");
                 $content = json_decode($content);
                 $current_event = $content[$_POST["dayindex"]]->events[$_POST["eventindex"]];
-                $current_event->startTime = $_POST["eventTime1"];
-                $current_event->endTime = $_POST["eventTime2"];
+                $current_event->startTime = get_formatted_times($_POST["eventTime1"]);
+                $current_event->endTime = get_formatted_times($_POST["eventTime2"]);
                 $current_event->eventDescription = $_POST["eventDesc"];
                 $current_event->id = $_POST["id"];
                 file_put_contents("./js/eventdata.json", json_encode($content));
@@ -155,12 +157,33 @@ if(!isset($_SESSION["login"])){
                 <div class='event-wrapper' data-day='{$current_day->day}' data-month='{$current_day->month}' data-eventid='{$current_event->id}'>
                     <div class='time'>$start_time - $end_time</div>
                     <div class='desc'>$event_desc</div>
-                    <div class='delete-button'>Delete</div>
-                    <div class='edit-button'>Edit</div>
+                    <div class='event-edit-wrapper'>
+                        <div class='delete-button'></div>
+                        <div class='edit-button'></div>
+                    </div>
                 </div>
                 ");
             }
         }
+    }
+    function get_formatted_times($time){
+        // TAKES TIME IN FORMAT '00:00'
+        $h_and_m = explode(":", $time);
+        $hours = (int)$h_and_m[0];
+        $minutes = $h_and_m[1];
+        $pm_or_am = "";
+        if($hours == 12){
+            $pm_or_am = "pm";
+        }else if($hours == 24){
+            $pm_or_am = "am";
+            $hours -= 12;
+        }else if($hours > 12){
+            $pm_or_am = "pm";
+            $hours -= 12;
+        }else{
+            $pm_or_am = "am";
+        }
+        return "$hours:$minutes$pm_or_am";
     }
     ?>
 </body>

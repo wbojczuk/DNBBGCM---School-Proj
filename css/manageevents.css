@@ -1,3 +1,6 @@
+body{
+    background-color: #0e4d7a;
+}
 #addEventButton{
     margin-top: 2vw;
     font-size: 2vw;
@@ -13,10 +16,12 @@
     width: 50%;
     margin: 1% 1%;
     aspect-ratio: 2/1;
-    border: 1px solid white;
+    border: 0px solid transparent;
     position: relative;
+    background-color: #021E3D;
     left: 10%;
     padding-bottom: 5vh;
+    overflow-y: auto;
 }
 
 .event-wrapper .time{
@@ -24,12 +29,24 @@
     font-size: 2vw;
     font-weight: 600;
     color: white;
+    margin: 1vw;
 }
 .event-wrapper .desc{
     font-family: "Roboto", sans-serif;
     font-size: 1.5vw;
     font-weight: 400;
     color: white;
+    margin-left: 2vw;
+}
+
+.event-edit-wrapper{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right:0;
+    width: 10%;
+    height: 100%;
+    background-color: rgb(72, 143, 235);
 }
 
 .event-wrapper .delete-button{
@@ -38,40 +55,52 @@
     align-items: center;
     justify-content: center;
     bottom: 0;
-    right: 0.5%;
-    width: 49%;
+    left: 0;
+    width: 100%;
     font-size: 2vw;
     font-weight: 600;
-    height: 5vh;
-    background-color: rgb(177, 6, 6);
+    height: calc(50% - 2px);
+    background-image: url("../img/delete.svg");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
     user-select: none;
+    border-top: 2px solid #231815;
 }
 .event-wrapper .edit-button{
     position: absolute;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    bottom: 0;
-    left: 0.5%;
-    width: 49%;
+    top: 0;
+    left: 0;
+    width: 100%;
     font-size: 2vw;
     font-weight: 600;
-    height: 5vh;
-    background-color: rgb(252, 241, 195);
+    height: calc(50% - 2px);
     cursor: pointer;
     user-select: none;
+    background-image: url("../img/edit.svg");
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #231815;
+}
+.event-wrapper .edit-button:hover, .event-wrapper .delete-button:hover{
+    background-color: rgb(60, 119, 196);
 }
 
 #addEventForm{
     display: inline-block;
     width: 50vw;
     height: 50vh;
-    background-color: rgba(107, 107, 107, 0.459);
+    background-color: #0A2F59;
     font-family: "Roboto", sans-serif;
     font-size: 1.5vw;
     font-weight: 400;
     padding: 2%;
+    color: white;
 }
 #addEventForm div{
     margin-top: 2%;
@@ -84,14 +113,27 @@ input{
 #eventDesc{
     width: 100%;
 }
-input[type="submit"]{
+input[type="submit"], #cancelEventEdit{
+    display: inline-block;
+    height: 2vw;
+    font-size: 1.2vw;
     padding: 0 2vw;
     border-radius: 5px;
     cursor: pointer;
 }
+#cancelEventEdit{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2vw;
+}
 label[for="loginPass"]{
     font-family: "Roboto", monospace;
     font-size: 1.5vw;
+    color: white;
+}
+textarea{
+    font-size: 1vw;
 }
 .form-error{
     margin-top: 1vw;
@@ -101,4 +143,51 @@ label[for="loginPass"]{
     border-bottom: 1px solid #ccc;
     padding: 0.2vw;
     background-color: rgba(0,0,0,0.3);
+}
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    #addEventButton{
+        margin-top: 2vh;
+        font-size: 2vh;
+        padding: 1.5vh 3.5vh;
+    }
+    .event-wrapper{
+        display: inline-block;
+        width: 90%;
+        margin: 1% 0;
+        aspect-ratio: 2/1;
+        left: 5%;
+    }
+    
+    .event-wrapper .time{
+        font-size: 3vh;
+    }
+    .event-wrapper .desc{
+        font-size: 2.5vh;
+        margin-left: 2vh;
+    }
+
+    #addEventForm{
+        display: inline-block;
+        width: 80vw;
+        height: 60vh;
+        font-size: 2.5vh;
+    }
+    input{
+        height: 3vh;
+        font-size: 2.2vh;
+    }
+    input[type="submit"], #cancelEventEdit{
+        height: 3vh;
+        font-size: 2.2vh;
+        padding: 0 3vh;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    textarea{
+        font-size: 2vh;
+    }
+    label[for="loginPass"]{
+        font-size: 2.5vh;
+    }
 }

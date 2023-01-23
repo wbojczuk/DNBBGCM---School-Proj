@@ -36,7 +36,7 @@
     font-size: 2vw;
     width: 15vw;
     aspect-ratio: 2/1;
-    background-color: #001625;
+    background-color: #0A2F59;
     border: 2px solid transparent;
     border-radius: 2px;
     filter: drop-shadow(5px 5px 4px #000);
@@ -61,7 +61,7 @@
     height: 0;
     width: 0;
     border-bottom: 4px solid #e00000;
-    border-right: 4px solid #003a62;
+    border-right: 4px solid #035d99;
     border-radius: 2px;
     filter: blur(1px);
     transition: 0.3s width ease-in-out, 0.3s height ease-in-out, 0.3s opacity ease-in-out;
