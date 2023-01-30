@@ -5,27 +5,7 @@ const calendarObj = {
     currentYear: new Date().getFullYear(),
     eventExpanded: false,
     eventExpandedHover: false,
-    plannedEvents: [
-        /*
-        ****TEMPLATE****
-
-        {
-        month: "April",
-        day: 19,
-        events: [
-            {
-                startTime: "1:00pm",
-                endTime: "2:00pm",
-                eventDescription: "Pro Shop open, Rogers Convention Center"
-            },
-        ]
-        },
-        
-        */
-        
-
-        ...EVENTDATA
-    ],
+    plannedEvents: [...EVENTDATA],
     init: ()=>{
         // new Date(year-month-dayT00:00:00)
         // Get soonest Month
@@ -36,7 +16,7 @@ const calendarObj = {
         const eventDaysLength = calendarObj.plannedEvents.length;
         const eventMonths = [];
 
-        // Auto Cle Event Expanded Listeners
+        // Auto Close Event Expanded Listeners
         const eventExpandedExit = document.getElementById('eventExpandedExit');
         eventExpandedExit.addEventListener("click", calendarObj.expandEventsExit);
         eventExpandedExit.addEventListener("mouseenter", ()=>{

@@ -1,0 +1,21 @@
+Team Standings ~ http://www.dwightwatt.com/ibbgcm/2018team.pdf,
+All Team Standings ~ http://www.dwightwatt.com/ibbgcm/2018team-all.pdf,
+Individual Aggregate ~ http://www.dwightwatt.com/ibbgcm/2018team-all.pdf,
+Alternate Aggregate ~ http://www.dwightwatt.com/ibbgcm/2018individual-alternate.pdf,
+Prone ~ http://www.dwightwatt.com/ibbgcm/2018prone.pdf,
+Alternate Prone ~ http://www.dwightwatt.com/ibbgcm/2018prone-alternate.pdf,
+Standing ~ http://www.dwightwatt.com/ibbgcm/2018standing.pdf,
+Alternate Standing ~ http://www.dwightwatt.com/ibbgcm/2018standing-alternate.pdf,
+Sitting ~ http://www.dwightwatt.com/ibbgcm/2018sitting.pdf,
+Alternate Sitting ~ http://www.dwightwatt.com/ibbgcm/2018sitting-alternate.pdf,
+
+Kneeling ~ http://www.dwightwatt.com/ibbgcm/2018kneeling.pdf,
+Alternate Kneeling ~ http://www.dwightwatt.com/ibbgcm/2018kneeling-alternate.pdf,
+Test ~ http://www.dwightwatt.com/ibbgcm/2018test.pdf,
+Alternate Test ~ http://www.dwightwatt.com/ibbgcm/2018test-alternate.pdf,
+Individual Aggregate (Champions) ~ http://www.dwightwatt.com/ibbgcm/2018champions-individual.pdf,
+Prone (Champions) ~ http://www.dwightwatt.com/ibbgcm/2018champions-prone.pdf,
+Standing (Champions) ~ http://www.dwightwatt.com/ibbgcm/2018champions-standing.pdf,
+Sitting (Champions) ~ http://www.dwightwatt.com/ibbgcm/2018champions-sitting.pdf,
+Kneeling (Champions) ~ http://www.dwightwatt.com/ibbgcm/2018champions-kneeling.pdf
+

@@ -15,14 +15,12 @@
          const mainNav = document.getElementById("mainNav");
          mainNav.insertAdjacentHTML("afterBegin", `
             <a id="homeLink" href="./index.html">Home</a>
-            <a id="galleryLink" href="./gallery.html">Gallery</a>
+            <a id="galleryLink" href="./gallery.php">Gallery</a>
             <a id="scheduleLink" href="./schedule.html">Schedule</a>
             <a class="dropdown-link" id="informationLink">
                 Information
-                <ul class="four">
-                    <li>General</li>
-                    <li>How to qualify</li>
-                    <li>FAQ</li>
+                <ul class="two" style="transform: translateY(43%) translateX(-90%);">
+                    <li>General/FAQ</li>
                     <li>Hotels/Housing</li>
                 </ul>
             </a>
@@ -34,8 +32,8 @@
                     <li>Wall Chart</li>
                 </ul>
             </a>
-            <a id="resultsLink" href="./results.html">Results</a>
-            <a id="productsLink" href="http://www.daisy.com/">Products</a>
+            <a id="resultsLink" href="./results.php">Results</a>
+            <a id="productsLink" href="http://www.daisy.com/" target="_blank">Products</a>
             <a id="contactLink" href="">Contact</a>
             <a id="archivedLink" href="#" class="dropdown-link">
             Archived
@@ -56,10 +54,10 @@
          mainNav.insertAdjacentElement("afterend", mainNav2);
  
          // Underline Navbar
-         document.getElementById(`${document.getElementById("pageID").dataset.pageid}Link`).classList.add("activePageLink");
+        if(document.getElementById("pageID")){ document.getElementById(`${document.getElementById("pageID").dataset.pageid}Link`).classList.add("activePageLink");
          if(document.getElementById("homeLink2")){
              document.getElementById(`${document.getElementById("pageID").dataset.pageid}Link2`).classList.add("activePageLink");
-         }
+         }}
  
   // Swap position to fixed on scroll
          window.addEventListener("scroll", ()=>{

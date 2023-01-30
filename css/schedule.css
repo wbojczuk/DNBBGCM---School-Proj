@@ -96,7 +96,7 @@
   }
 
   .calendar-grid-item.current-day{
-    filter: brightness(1.5);
+    background-color: rgba(246, 240, 240, 0.863);
   }
  
   #eventExpanded{
