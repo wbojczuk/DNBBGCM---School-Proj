@@ -47,18 +47,14 @@ const calendarObj = {
         for(let i = 0; i < eventDaysLength; ++i){
             eventMonths.push(calendarObj.plannedEvents[i].month);
         }
-        let curMonth = Math.min(...eventMonths);
-        let curYear = calendarObj.currentYear;
         // Populate Calender
         
-        if(calendarObj.plannedEvents.length !== 0){
-            calendarObj.renderCalendar(curYear, curMonth);
-        }else{
+        
             const newDate = new Date();
-             curMonth = newDate.getMonth();
-             curYear = newDate.getFullYear();
+            let curMonth = newDate.getMonth();
+            let curYear = newDate.getFullYear();
             calendarObj.renderCalendar(curYear, curMonth);
-        }
+        
         
 
         document.getElementById("backMonthArrow").addEventListener("click", ()=>{
@@ -109,8 +105,9 @@ const calendarObj = {
         // Get Month's Events
         const eventDaysLength = calendarObj.plannedEvents.length;
         const currentEvents = [];
+        
         for(let i = 0; i < eventDaysLength; ++i){
-            if(calendarObj.plannedEvents[i].month == month){
+            if(calendarObj.plannedEvents[i].month == month && calendarObj.plannedEvents[i].year == year){
                 currentEvents.push(calendarObj.plannedEvents[i]);
             }
         }
@@ -171,7 +168,7 @@ const calendarObj = {
         const tempEventDesc = document.createElement("span");
         tempEventDesc.className = "desc";
         const eventExpandedTitle = document.createElement("h2");
-        eventExpandedTitle.textContent = `${monthNames[dayObj.month]} ${dayObj.day}`;
+        eventExpandedTitle.textContent = `${monthNames[dayObj.month]} ${dayObj.day}, ${dayObj.year}`;
         eventExpandedFragment.appendChild(eventExpandedTitle);
 
         const eventsLength = dayObj.events.length;

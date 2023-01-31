@@ -34,9 +34,15 @@
         <!-- IF year has not been selected yet -->
         <?php
         // Get the content of gallery_links and create box-link elems
-        $results = scandir("./result_links");
-        array_shift($results);
-        array_shift($results);
+        $temp_results = scandir("./result_links");
+        array_shift($temp_results);
+        array_shift($temp_results);
+        $results = [];
+        foreach($temp_results as $result){
+            if(is_dir("./result_links/$result")){
+                $results[] = $result;
+            }
+        }
         rsort($results);
         $results_length = count($results);
         $gallery_html = "<span>";

@@ -34,14 +34,15 @@
 
         <?php
         // If year and category are set
-            if(isset($_GET["category"]) && isset($_GET["year"])){
+            if(isset($_GET["year"])){
                 $current_year = $_GET["year"];
                 $current_cat = $_GET["category"];
                 $current_dir = "./gallery_links/$current_year/$current_cat.json";
+                $url_year = urlencode($current_year);
                 // Parse link file from json
                 $all_links = json_decode(file_get_contents($current_dir));
                 ?>
-                <h1 id="galleryHeader"><?php echo("<a href='./gallery.php?year=$current_year'>$current_year</a> / " . ucwords(str_replace("_", " ", $current_cat))); ?></h1>
+                <h1 id="galleryHeader"><?php echo("<a href='./gallery.php?year=$url_year'>$current_year</a> / " . ucwords(str_replace("_", " ", $current_cat))); ?></h1>
                 <h3 class="picture-gallery-desc">If you would like the high quality picture, send Dwight an email at <a href="mailto:dwightwatt@dwightwatt.com" style="color: rgb(255,255,255);">dwightwatt@dwightwatt.com</a> with the picture ID(s) which can be found by hovering over or tapping an image and he will send it to you
 Teams are welcome to copy and print the photos and also to distribute to media for media to use</h3>
                 <div id="photoGalleryWrapper">

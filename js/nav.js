@@ -27,9 +27,9 @@
             <a class="dropdown-link" id="curriculumLink" >
                 Curriculum
                 <ul class="three">
-                    <li>Lessons</li>
-                    <li>Certificate</li>
-                    <li>Wall Chart</li>
+                    <li data-href="http://www.dwightwatt.com/ibbgcm/Ten_Lesson_Curriculum_for_Shooting_Education_2013.pdf">Lessons</li>
+                    <li data-href="http://www.dwightwatt.com/ibbgcm/Daisy_Shooting_Education_Program_Certificate.pdf">Certificate</li>
+                    <li data-href="http://www.dwightwatt.com/ibbgcm/Wall_Charts_Avanti.pdf">Wall Chart</li>
                 </ul>
             </a>
             <a id="resultsLink" href="./results.php">Results</a>
@@ -135,6 +135,14 @@
                 bodyElem.style.overflowY = "auto";
             }
          });
+
+        //  ADD CLICK LISTENERS TO <li> elems
+        const liElems = document.querySelectorAll(".dropdown-link ul li");
+        liElems.forEach((elem)=>{
+            if(elem.hasAttribute("data-href")){
+                elem.addEventListener("click", ()=>{window.open(elem.dataset.href), "_blank";});
+            }
+        });
      }
  }
  navObj.init();

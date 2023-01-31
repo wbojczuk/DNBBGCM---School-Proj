@@ -1,0 +1,12 @@
+Team Standings ~ http://www.dwightwatt.com/ibbgcm/2013-team.pdf,
+Individual Aggregate ~ http://www.dwightwatt.com/ibbgcm/2013-individual.pdf,
+Alternate Aggregate ~ http://www.dwightwatt.com/ibbgcm/2013-alternate.pdf,
+Prone ~ http://www.dwightwatt.com/ibbgcm/2013-prone.pdf,
+Alternate Prone ~ http://www.dwightwatt.com/ibbgcm/2013-alternate-prone.pdf,
+Standing ~ http://www.dwightwatt.com/ibbgcm/2013-standing.pdf,
+Alternate Standing ~ http://www.dwightwatt.com/ibbgcm/2013-alternate-standing.pdf,
+Sitting ~ http://www.dwightwatt.com/ibbgcm/2013-sitting.pdf,
+Alternate Sitting ~ http://www.dwightwatt.com/ibbgcm/2013-alternate-sitting.pdf,
+Kneeling ~ http://www.dwightwatt.com/ibbgcm/2013-kneeling.pdf,
+Alternate Kneeling ~ http://www.dwightwatt.com/ibbgcm/2013-alternate-kneeling.pdf,
+Test ~ http://www.dwightwatt.com/ibbgcm/2013-test.pdf

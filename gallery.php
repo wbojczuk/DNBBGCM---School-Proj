@@ -35,13 +35,16 @@
     <?php
             #VARIABLES
             $current_year = $_GET["year"];
+            $url_year = urlencode($current_year);
             $current_dir = "./gallery_links/$current_year";
         ?>
         <h1 id="galleryHeader"><?php echo "<a href='./gallery.php'>Gallery</a> / $current_year"; ?></h1>
     <div id="galleryContainer">
         <?php
+        
         // Get and display categories
         $categories = scandir($current_dir);
+        
         array_shift($categories);
         array_shift($categories);
         sort($categories);
@@ -56,7 +59,9 @@
             $category = ucwords(str_replace(["_", ".json"], [" ", ""], $categories[$i]));
             $cat_no_txt = str_replace(".json",  "", $categories[$i]);
             $current_iteration = $i + 1;
-            $gallery_html .= "<a class='box-link' href='./photo_gallery.php?year=$current_year&category=$cat_no_txt'>$category</a>";
+            
+            $url_cat = urlencode($cat_no_txt);
+            $gallery_html .= "<a class='box-link' href='./photo_gallery.php?year=$url_year&category=$url_cat'>$category</a>";
             if($current_iteration % 4 == 0 && $current_iteration !== $categories_length){
                 $gallery_html .= "</span><span>";
             }else if($current_iteration == $categories_length){
@@ -83,8 +88,9 @@
         $gallery_html = "<span>";
         for($i = 0; $i < $years_length; ++$i){
             $year = $years[$i];
+            $url_year = urlencode($year);
             $current_iteration = $i + 1;
-            $gallery_html .= "<a class='box-link' href='./gallery.php?year=$year'>$year</a>";
+            $gallery_html .= "<a class='box-link' href='./gallery.php?year=$url_year'>$year</a>";
             if($current_iteration % 4 == 0 && $current_iteration !== $years_length){
                 $gallery_html .= "</span><span>";
             }else if($current_iteration == $years_length){

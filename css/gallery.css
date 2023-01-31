@@ -69,6 +69,7 @@
     border-radius: 2px;
     filter: blur(1px);
     transition: 0.3s width ease-in-out, 0.3s height ease-in-out, 0.3s opacity ease-in-out;
+    pointer-events: none;
 }
 
 .box-link::before{

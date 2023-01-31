@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Event</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/manageevents.css">
-    <script src="./js/jsreload.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sitemanager.css">
+    <script src="../js/jsreload.js" defer></script>
 </head>
 <body>
+<a href="./manage_events.php" class="button-one" id="previousPage">< Go Back</a>
     <?php
     function time_str_to_input($time){
         $h_and_m = explode(":", str_replace(["am", "pm"], "", $time));
@@ -25,7 +26,7 @@
         return "$hours:{$h_and_m[1]}";
     }
     if(!isset($_SESSION["login"])){
-        echo("<div id='jsReload' data-filename='./manage_events.php'></div>");
+        echo("<div id='jsReload' data-filename='../site_manager.php'></div>");
     }else{
     // IF YOU ARE EDITING AN EVENT
         if(isset($_GET["action"]) && $_GET["action"] == "edit"){
@@ -39,7 +40,7 @@
             $current_end_time = "";
             $current_description = "";
             // FIND RIGHT EVENT
-            $content = file_get_contents("./js/eventdata.json");
+            $content = file_get_contents("../js/eventdata.json");
             $content = json_decode($content);
             // GET DAY/EVENT DATA
             $editing_day_index = 0;
