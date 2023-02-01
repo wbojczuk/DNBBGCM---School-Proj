@@ -1,3 +1,8 @@
+<!-- 
+    Program: add_event.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <!-- FORMS TO CREATE/EDIT EVENTS -->
 <?php session_start(); ?>
 <!DOCTYPE html>

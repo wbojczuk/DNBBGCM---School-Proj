@@ -1,5 +1,13 @@
+/*
+    Program: site_manager.css
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
 body{
     background-color: #0e4d7a;
+}
+.button-one{
+    font-size: 1.5vw;
 }
 /* SITE MANAGER HOMEPAGE */
 #siteManagerWrapper{
@@ -50,6 +58,29 @@ body{
     position: absolute;
     top: 5vh;
     left: 5vh;
+    font-size: 1.5vw;
+}
+
+/* RESULT MANAGER (A LOT OF STYLES WERE REUSED FROM GALLERY MANAGER) */
+.url-input{
+    width: 70%;
+}
+.name-input{
+    width: 29%;
+}
+.result-wrapperr{
+    display: flex;
+    justify-content: space-between;
+}
+div:has(#nameInput){
+    display: none;
+    margin-top: 3vh;
+    padding-bottom: 3vh;
+}
+label{
+    margin-left: 1vw;
+    font-size: 2vw;
+    font-family: 'Roboto', monospace;
 }
 
 /* Gallery Manager */
@@ -58,7 +89,7 @@ body{
 }
 .box-link-no-hover:hover{
     transform: scale(1);
-    border: none;
+    border: 2px solid transparent;
 }
 .box-link-no-hover::after{
     display: none;
@@ -144,7 +175,7 @@ body{
     right:0;
     width: 5%;
     height: 96%;
-    background-color: rgba(245, 70, 70, 0.466);
+    background-color: rgb(177, 48, 48);
     background-image: url('../img/delete.svg');
     background-size: 30%;
     background-position: center;
@@ -170,7 +201,7 @@ body{
 div.center:has(#addPhotoInput){
     display: none;
 }
-#addPhotoFinish{
+#addResultFinish{
     cursor: pointer;
     margin-left: 1vw;
     font-size: 2vw;

@@ -1,3 +1,8 @@
+<!-- 
+    Program: manage_events.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">

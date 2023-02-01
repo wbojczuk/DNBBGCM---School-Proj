@@ -1,3 +1,9 @@
+/*
+    Program: manageevents.js
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
+
 // ADDS BUTTON FUNCTIONALITY TO "manage_events.php"
 const manageEventsObj = {
     init: ()=>{

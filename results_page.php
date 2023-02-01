@@ -1,4 +1,8 @@
-
+<!-- 
+    Program: results_page.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +40,9 @@
             
             <h1 id="galleryHeader"><?php echo("<a href='./results.php'>Results</a> / $current_year");?></h1>
             <div id="galleryContainer">
-            <h3 style="margin-bottom: 3vw;" class="picture-gallery-desc">You can also find the match results by Orion (the electronic system that scored the match) at <a href="http://orionresults.com/team/Search.aspx?Search=Daisy%20Outdoor%20Sports%20Rogers%20AR%20<?php echo$current_year;?>" target="_blank" style="color: white;">www.orionresults.com</a>
-
-
-</h3>
+            <h3 style="margin-bottom: 3vw;" class="picture-gallery-desc">You can also find the match results by Orion (the electronic system that scored the match) at <a href="http://orionresults.com/team/Search.aspx?Search=Daisy%20Outdoor%20Sports%20Rogers%20AR%20<?php echo$current_year;?>" target="_blank" style="color: white;">www.orionresults.com</a></h3>
             <?php
-
+        // Generate Result Links
         $results = file_get_contents("$current_dir/results.txt");
         $results = explode(",", $results);
         sort($results);

@@ -1,4 +1,8 @@
-
+/*
+    Program: calendar.js
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
 
 const calendarObj = {
     // ONLY ONE YEAR MAY BE PRESENT AT A TIME
@@ -121,7 +125,7 @@ const calendarObj = {
             if(ourMonth == true && (i + 1) == actualDay){
                 curDay.classList.add("current-day");
             }
-
+            // Add Event attributes/listeners to day in grid
             currentEvents.forEach((curEvent)=>{
                 if(curEvent.day == (i + 1)){
                     curDay.classList.add("has-event");

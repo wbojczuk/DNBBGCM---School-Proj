@@ -1,3 +1,8 @@
+<!-- 
+    Program: results.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +38,7 @@
     <div id="galleryContainer">
         <!-- IF year has not been selected yet -->
         <?php
-        // Get the content of gallery_links and create box-link elems
+        // Get the folders in result_links and create box-link elems
         $temp_results = scandir("./result_links");
         array_shift($temp_results);
         array_shift($temp_results);
@@ -48,8 +53,9 @@
         $gallery_html = "<span>";
         for($i = 0; $i < $results_length; ++$i){
             $year = $results[$i];
+            $url_year = urlencode($year);
             $current_iteration = $i + 1;
-            $gallery_html .= "<a class='box-link' href='./results_page.php?year=$year'>$year</a>";
+            $gallery_html .= "<a class='box-link' href='./results_page.php?year=$url_year'>$year</a>";
             if($current_iteration % 4 == 0 && $current_iteration !== $results_length){
                 $gallery_html .= "</span><span>";
             }else if($current_iteration == $results_length){

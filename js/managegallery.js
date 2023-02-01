@@ -1,12 +1,19 @@
+/*
+    Program: managegallery.js
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
 const manageGalleryObj = {
     init: ()=>{
         
-
         // FOLDER EDITORS
         if(document.getElementById("addFolderButton")){
+            // ------------------ IF USER IS VIEWING YEARS ----------------------
+
             // Add folder button
         document.getElementById("addFolderButton").addEventListener("click", addFolder);
 
+        // YEAR/FOLDER EDIT BUTTON LISTENERS
         const allEditButtons = document.querySelectorAll(".edit-folder-bar");
         allEditButtons.forEach((elem)=>{
             elem.querySelector(".edit").addEventListener("click", editFolderName);
@@ -17,10 +24,14 @@ const manageGalleryObj = {
         allTopEditButtons.forEach((elem)=>{
             elem.addEventListener("click", openFolder);
         });
+
         }else if(document.getElementById("addCategoryButton")){
-        // Category Editors
+            // ------------------ IF USER IS VIEWING CATEGORIES ----------------------
+
+        // Add Category Button
         document.getElementById("addCategoryButton").addEventListener("click", addCategory);
 
+        // CATEGORY EDIT BUTTON LISTENERS
         const allEditButtons = document.querySelectorAll(".edit-category-bar");
         allEditButtons.forEach((elem)=>{
             elem.querySelector(".edit").addEventListener("click", editCategoryName);
@@ -95,7 +106,7 @@ const manageGalleryObj = {
                 postForm.style.display = "none";
                 const nameVal = document.createElement("input");
                 nameVal.setAttribute("name", "year");
-                nameVal.value = (evt.target.parentNode.textContent).slice();
+                nameVal.value = (evt.target.parentNode.textContent).trim();
                 postForm.append(nameVal);
                 document.getElementsByTagName("body")[0].append(postForm);
                 postForm.submit();
@@ -122,6 +133,7 @@ const manageGalleryObj = {
             }
         }
 
+        // EDIT CATEGORY NAME
         function editCategoryName(evt){
             let categoryName = prompt("Enter Folder Name", ((evt.target.parentNode).parentNode.textContent).trim());
             if (categoryName != null) {
@@ -151,6 +163,7 @@ const manageGalleryObj = {
             }
         }
 
+        // Delete Category
         function deleteCategory(evt){
             if(confirm("Are you sure you want to delete this album and all it's contents?")){
                 const postForm = document.createElement("form");
@@ -170,6 +183,7 @@ const manageGalleryObj = {
             }
         }
 
+        // Open Category
         function openCategory(evt){
             const postForm = document.createElement("form");
             postForm.setAttribute("method", "post");
@@ -194,19 +208,39 @@ const manageGalleryObj = {
 
     },
     linkManager: ()=>{
+        // ------------------ IF USER IS VIEWING LINKS ----------------------
+
+        // Check if there are unsaved changes before page closes/exits
         window.onbeforeunload = checkSaved;
         let unSavedChanges = false;
-        let amtChecked = 0;
+        document.querySelectorAll("input[type='text'], textarea").forEach((elem)=>{
+            elem.addEventListener("input", ()=>{
+                unSavedChanges = true;
+            });
+        });
+        function checkSaved(){
+            if(unSavedChanges){
+                return "There are unsaved chanegs on this page, are you sure you want to exit?";
+            }
+        }
+
+        // Links imported from PHP
         const allGalleryLinks = [...allLinks];
+        // Batch Select State
+        let amtChecked = 0;
+        
+
+        // Element Refs
         const addPhotoFinish = document.getElementById("addPhotoFinish");
         const addPhotoInput = document.getElementById("addPhotoInput");
         const batchDeleteButton = document.getElementById("batchDelete");
-
         const saveButton = document.getElementById("saveChangesButton");
-        saveButton.addEventListener("click", saveChanges);
-
-        let inputOpen = false;
         const addPhotoButton = document.getElementById("addPhotoButton");
+        const allLinkElems = document.querySelectorAll(".manage-link");
+
+        
+        // "Add Photo" Button Listeners
+        let inputOpen = false;
         addPhotoButton.addEventListener("click", ()=>{
             if(!inputOpen){
                 addPhotoInput.parentElement.style.display = "flex";
@@ -233,20 +267,23 @@ const manageGalleryObj = {
             });
         });
 
-        // Event listeners
-        const allLinkElems = document.querySelectorAll(".manage-link");
+        // Save Button Event listener
+        saveButton.addEventListener("click", saveChanges);
+
+        // Events on each of the exisiting links
         allLinkElems.forEach((elem)=>{
+            // LINK INPUT
             elem.addEventListener("input", (evt)=>{
                 allGalleryLinks[evt.target.dataset.count] = evt.target.value;
             });
-            // DELETE LISTENER
+            // DELETE BUTTON
             elem.parentElement.querySelector(".delete-link").addEventListener("click", (evt)=>{
                 if(confirm("Are you sure you want to delete this link?")){
                     allGalleryLinks.splice((evt.target.parentNode).querySelector("input[type='text']").dataset.count,1);
                     saveChanges();
                 }
             });
-            // CHECKBOX LISTENER
+            // CHECKBOX
             elem.parentElement.querySelector(".check-link").addEventListener("change", (evt)=>{
                 if(evt.target.checked){
                     ++amtChecked;
@@ -262,8 +299,10 @@ const manageGalleryObj = {
 
             
     });
+
+    // Batch Delete All Selected Links
     batchDeleteButton.addEventListener("click", ()=>{
-        // if(confirm("Are you sure you want to delete all the selected links?")){
+        if(confirm("Are you sure you want to delete all the selected links?")){
             const allDelLinks = document.querySelectorAll(".check-link:checked");
             const delVals = [];
             allDelLinks.forEach((link)=>{
@@ -273,15 +312,10 @@ const manageGalleryObj = {
                 allGalleryLinks.splice(allGalleryLinks.indexOf(val),1);
             });
             saveChanges();
-        // }
+        }
     });
 
-    document.querySelectorAll("input, textarea").forEach((elem)=>{
-        elem.addEventListener("input", ()=>{
-            unSavedChanges = true;
-        });
-    });
-
+    // Convert changes to JSON Format and POST to be saved by PHP
     function saveChanges(){
         window.onbeforeunload = "";
         const postForm = document.createElement("form");
@@ -307,14 +341,11 @@ const manageGalleryObj = {
             postForm.submit();
     }
 
-    function checkSaved(){
-        if(unSavedChanges){
-            return "There are unsaved chanegs on this page, are you sure you want to exit?";
-        }
-    }
+    
 
     }
 };
+// Determine if viewing links or not
 if(document.getElementById("addPhotoButton")){
     manageGalleryObj.linkManager();
 }else{

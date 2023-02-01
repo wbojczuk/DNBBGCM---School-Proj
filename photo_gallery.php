@@ -1,4 +1,8 @@
-
+<!-- 
+    Program: photo_gallery.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

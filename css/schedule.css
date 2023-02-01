@@ -1,3 +1,10 @@
+/*
+    Program: schedule.css
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
+
+/* Calendar Container */
 #scheduleHeader{
     margin: 2% 5%;
 }
@@ -59,12 +66,14 @@
     width: 100%;
   }
 
+/* Calendar Grid Items */
   .calendar-grid-item{
     width: 100%;
     aspect-ratio: 1/0.9;
     border: 1px solid transparent;
     background-color: rgba(221, 221, 221, 0.705);
     cursor: pointer;
+    position: relative;
   }
   .calendar-grid-days{
     display: inline-flex;
@@ -91,6 +100,18 @@
   .calendar-grid-item.has-event{
     background-color: #EA5D29;
   }
+  .calendar-grid-item.has-event::after{
+    content: 'Click To View Events';
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    font-family: 'Roboto', monospace;
+    top:40%;
+    left:0;
+    width: 100%;
+    height: 20%;
+  }
   .calendar-grid-item.has-event:hover{
     background-color: #c54f25;
   }
@@ -98,7 +119,8 @@
   .calendar-grid-item.current-day{
     background-color: rgba(246, 240, 240, 0.863);
   }
- 
+
+ /* Event Expanded Styles */
   #eventExpanded{
     display: none;
     width: 65vw;
@@ -155,6 +177,7 @@
     font-size: 1.1vw;
     font-weight: 400;
   }
+
 
   /* Mobile Styles */
 @media only screen and (max-width: 600px) {

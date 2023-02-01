@@ -12,7 +12,7 @@
 /* I created this framework in 2022 to make rendering confetti-like particles easy
 
 METHODS
-confettiAnim.confettiAnim(elem) - Starts particle rendering relative to elem
+confettiAnim.confettiAnim(elem) - Starts particle rendering relative to elem, (OVERRIDES RENDERER TIMEOUT)
 confettiAnim.confettiHandler(event) - Sends event.target to renderer if renderer is ready.
 */
 

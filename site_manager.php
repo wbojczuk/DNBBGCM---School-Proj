@@ -1,3 +1,8 @@
+<!-- 
+    Program: site_manager.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <?php
 session_set_cookie_params(0, "/");
 session_start();
@@ -68,7 +73,7 @@ if(!isset($_SESSION["login"])){
                 <div class="site-option-img"></div>
                 <h4 class="site-option-title">Gallery</h4>
             </a>
-            <a class="site-manager-option">
+            <a class="site-manager-option" href="./site_manager/manage_results.php">
                 <div class="site-option-img"></div>
                 <h4 class="site-option-title">Results</h4>
             </a>

@@ -1,3 +1,8 @@
+<!-- 
+    Program: gallery.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +49,10 @@
         
         // Get and display categories
         $categories = scandir($current_dir);
-        
         array_shift($categories);
         array_shift($categories);
         sort($categories);
+        
         if(array_search("main_img.json", $categories)){
             $main_img = array_splice($categories,array_search("main_img.json", $categories), 1);
         }

@@ -1,4 +1,14 @@
-/* Gallery Styles */
+/*
+    Program: gallery.css
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+*/
+
+body{
+  padding-bottom: 10%;
+}
+
+/* Gallery Styles (WHILE IN FOLDERS) */
 #galleryHeader{
     margin: 4vw 0 0 15vw;
     text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.616);
@@ -31,6 +41,7 @@
     background: linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(102,102,102,1) 25%, rgba(102,102,102,1) 50%, rgba(102,102,102,1) 75%, rgba(0,212,255,0) 100%);
 }
 
+/* Generic Box Link styles */
 .box-link{
     display: inline-flex;
     align-items: center;
@@ -104,6 +115,8 @@
     width: 99%;
     height: 99%;
 }
+
+/* Gallery Styles (WHILE VIEWING PHOTOS) */
 #photoGalleryWrapper{
     margin-top: 4vw;
     display: flex;
@@ -174,9 +187,7 @@
     margin-top: 2vw;
     font-family: "Roboto", monospace;
   }
-  body{
-    padding-bottom: 10%;
-  }
+  
   .gallery-footer-span{
 display: inline-block;
 width: 70%;
@@ -184,6 +195,8 @@ margin-left: 15%;
 margin-right: 15%;
 padding-bottom:0.5%;
   }
+
+  
 /* Mobile Styles */
 @media only screen and (max-width: 600px) {
     #galleryHeader{
