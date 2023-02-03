@@ -10,11 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Gallery</title>
+    <title>DNBBGCM Site Manager</title>
     <link rel="stylesheet" href="../css/style.css">
-    
     <link rel="stylesheet" href="../css/gallery.css">
     <link rel="stylesheet" href="../css/sitemanager.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <script src="../js/jsreload.js" defer></script>
     <script src="../js/managegallery.js" defer></script>
 </head>
@@ -175,7 +175,7 @@ echo $gallery_html;
     ?>
     <a href="../site_manager.php" class="button-one" id="previousPage">< Home</a>
     <div class="center" >
-        <h1 style=" display:inline-block;margin-top: 10vh;">Years</h1>
+        <h1 style=" display:inline-block;margin-top: 10vh;">Gallery Manager</h1>
     </div>
     <div class="center">
         <a href="#" id="addFolderButton" class="button-one">Add Folder</a>

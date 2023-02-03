@@ -17,19 +17,13 @@
             <a id="homeLink" href="./index.html">Home</a>
             <a id="galleryLink" href="./gallery.php">Gallery</a>
             <a id="scheduleLink" href="./schedule.html">Schedule</a>
-            <a class="dropdown-link" id="informationLink">
-                Information
-                <ul class="two" style="transform: translateY(43%) translateX(-90%);">
-                    <li>General/FAQ</li>
-                    <li>Hotels/Housing</li>
-                </ul>
-            </a>
+            <a href="./general_information.html" id="informationLink">Information</a>
             <a class="dropdown-link" id="curriculumLink" >
                 Curriculum
                 <ul class="three">
-                    <li data-href="http://www.dwightwatt.com/ibbgcm/Ten_Lesson_Curriculum_for_Shooting_Education_2013.pdf">Lessons</li>
-                    <li data-href="http://www.dwightwatt.com/ibbgcm/Daisy_Shooting_Education_Program_Certificate.pdf">Certificate</li>
-                    <li data-href="http://www.dwightwatt.com/ibbgcm/Wall_Charts_Avanti.pdf">Wall Chart</li>
+                    <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Ten_Lesson_Curriculum_for_Shooting_Education_2013.pdf">Lessons</li>
+                    <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Daisy_Shooting_Education_Program_Certificate.pdf">Certificate</li>
+                    <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Wall_Charts_Avanti.pdf">Wall Chart</li>
                 </ul>
             </a>
             <a id="resultsLink" href="./results.php">Results</a>
@@ -140,9 +134,15 @@
         const liElems = document.querySelectorAll(".dropdown-link ul li");
         liElems.forEach((elem)=>{
             if(elem.hasAttribute("data-href")){
-                elem.addEventListener("click", ()=>{window.open(elem.dataset.href), "_blank";});
+                if(elem.hasAttribute("data-target") && elem.dataset.target == "_blank"){
+                    elem.addEventListener("click", ()=>{window.open(elem.dataset.href), "_blank";});
+                }else{
+                    elem.addEventListener("click", ()=>{window.location.href = elem.dataset.href;});
+                }
+                
             }
         });
      }
  }
  navObj.init();
+ 

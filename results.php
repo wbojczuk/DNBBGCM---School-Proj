@@ -13,15 +13,19 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/nav.js" defer></script>
 </head>
 <body>
     <div id="pageID" data-pageid="results"></div>
 
- <!-- Logo -->
+    <div id="topWrapper">
+<!-- Logo -->
+<div class="center" id="secondaryLogoWrapper">
  <a href="./index.html">
  <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
 </a>
+</div>
     <!-- START NAV INJECTED FROM nav.js-->
     <nav id="mainNav"></nav>
     <nav id="mobileNav" class="mobile">
@@ -33,8 +37,9 @@
         <img id="mobileNavLogo" src="./img/daisynationallogo2020.png" alt="Daisy Logo">
     </nav>
     <!-- END NAV -->
+</div>
 
-<h1 id="galleryHeader">Results</h1>
+<h1 class="page-header" id="galleryHeader">Results</h1>
     <div id="galleryContainer">
         <!-- IF year has not been selected yet -->
         <?php

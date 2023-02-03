@@ -10,9 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Events</title>
+    <title>DNBBGCM Site Manager</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/sitemanager.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <script src="../js/manageevents.js" defer></script>
     <script src="../js/jsreload.js" defer></script>
 </head>
@@ -25,6 +26,9 @@ if(!isset($_SESSION["login"])){
 ?>
 <body>
 <a href="../site_manager.php" class="button-one" id="previousPage">< Home</a>
+<div class="center">
+    <h1 style=" display:inline-block;margin-top: 10vh;">Event Manager</h1>
+</div>
     <div class="center">
         <a href="./add_event.php" id="addEventButton" class="button-one">Add Event</a>
     </div>

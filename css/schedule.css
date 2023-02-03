@@ -6,7 +6,7 @@
 
 /* Calendar Container */
 #scheduleHeader{
-    margin: 2% 5%;
+    margin: 2% 8%;
 }
 #calendarHeaderWrapper{
     display: flex;
@@ -41,9 +41,9 @@
     width: 75%;
     height: auto;
     position: relative;
-    left: calc(12.5% - 2vw);
-    padding: 1vw 2vw;
-    background-color: #0e4d7a;
+    padding: 1vw 12.5%;
+    background-color: #0A2F59;
+    
 }
 #calendarDays{
     display: flex;
@@ -209,6 +209,10 @@
 }
 #calendarHeader{
   font-size: 3vh;
+}
+.calendar-grid-item.has-event::after{
+  content: 'Tap To View Events';
+  font-size: 1vh;
 }
 #eventExpandedExit{
   width: 15%;

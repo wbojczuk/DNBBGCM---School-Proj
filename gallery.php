@@ -13,15 +13,19 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/nav.js" defer></script>
 </head>
 <body>
     <div id="pageID" data-pageid="gallery"></div>
 
+    <div id="topWrapper">
  <!-- Logo -->
+<div class="center" id="secondaryLogoWrapper">
  <a href="./index.html">
-    <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
-   </a>
+ <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
+</a>
+</div>
 
  <nav id="mobileNav" class="mobile">
     <div id="mobileNavMenu">
@@ -34,6 +38,7 @@
    <!-- START NAV INJECTED FROM nav.js-->
    <nav id="mainNav"></nav>
    <!-- END NAV -->
+</div>
 
    <!-- IF THE YEAR HAS BEEN SELECTED-->
 <?php if(isset($_GET["year"])){?>
@@ -43,7 +48,7 @@
             $url_year = urlencode($current_year);
             $current_dir = "./gallery_links/$current_year";
         ?>
-        <h1 id="galleryHeader"><?php echo "<a href='./gallery.php'>Gallery</a> / $current_year"; ?></h1>
+        <h1 class="page-header" id="galleryHeader"><?php echo "<a href='./gallery.php'>Gallery</a> / $current_year"; ?></h1>
     <div id="galleryContainer">
         <?php
         
@@ -80,7 +85,7 @@
     <?php
     }else{
         ?>
-<h1 id="galleryHeader">Gallery</h1>
+<h1 class="page-header" id="galleryHeader">Gallery</h1>
     <div id="galleryContainer">
         <!-- IF year has not been selected yet -->
         <?php

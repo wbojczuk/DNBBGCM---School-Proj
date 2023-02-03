@@ -1,11 +1,1 @@
-Team Standings ~ http://www.dwightwatt.com/ibbgcm/2014team.pdf,
-Individual Aggregate ~ http://www.dwightwatt.com/ibbgcm/2014aggregate.pdf,
-Alternate Aggregate ~ http://www.dwightwatt.com/ibbgcm/2014alternate-aggregate.pdf,
-Prone ~ http://www.dwightwatt.com/ibbgcm/2014prone.pdf,
-Alternate Prone ~ http://www.dwightwatt.com/ibbgcm/2014alternate-prone.pdf,
-Standing ~ http://www.dwightwatt.com/ibbgcm/2014standing.pdf,
-Alternate Standing ~ http://www.dwightwatt.com/ibbgcm/2014alternate-standing.pdf,
-Sitting ~ http://www.dwightwatt.com/ibbgcm/2014sitting.pdf,
-Alternate Sitting ~ http://www.dwightwatt.com/ibbgcm/2014alternate-sitting.pdf,
-Kneeling ~ http://www.dwightwatt.com/ibbgcm/2014kneeling.pdf,
-Alternate Kneeling ~ http://www.dwightwatt.com/ibbgcm/2014alternate-kneeling.pdf
+Team Standings ~ http://www.dwightwatt.com/ibbgcm/2014team.pdf` Individual Aggregate ~ http://www.dwightwatt.com/ibbgcm/2014aggregate.pdf` Alternate Aggregate ~ http://www.dwightwatt.com/ibbgcm/2014alternate-aggregate.pdf` Prone ~ http://www.dwightwatt.com/ibbgcm/2014prone.pdf` Alternate Prone ~ http://www.dwightwatt.com/ibbgcm/2014alternate-prone.pdf` Standing ~ http://www.dwightwatt.com/ibbgcm/2014standing.pdf` Alternate Standing ~ http://www.dwightwatt.com/ibbgcm/2014alternate-standing.pdf` Sitting ~ http://www.dwightwatt.com/ibbgcm/2014sitting.pdf` Alternate Sitting ~ http://www.dwightwatt.com/ibbgcm/2014alternate-sitting.pdf` Kneeling ~ http://www.dwightwatt.com/ibbgcm/2014kneeling.pdf` Alternate Kneeling ~ http://www.dwightwatt.com/ibbgcm/2014alternate-kneeling.pdf

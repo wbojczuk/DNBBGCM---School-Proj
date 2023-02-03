@@ -9,6 +9,11 @@ body{
 .button-one{
     font-size: 1.5vw;
 }
+#galleryContainer{
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(0,0,0,0);
+}
 /* SITE MANAGER HOMEPAGE */
 #siteManagerWrapper{
     display: inline-flex;
@@ -175,7 +180,7 @@ label{
     right:0;
     width: 5%;
     height: 96%;
-    background-color: rgb(177, 48, 48);
+    background-color: rgb(245, 70, 70);
     background-image: url('../img/delete.svg');
     background-size: 30%;
     background-position: center;
@@ -183,7 +188,7 @@ label{
     cursor: pointer;
 }
 .delete-link:hover{
-    background-color: rgba(245, 70, 70, 1);
+    background-color: rgb(177, 48, 48); 
 }
 .check-link{
     display: inline-block;

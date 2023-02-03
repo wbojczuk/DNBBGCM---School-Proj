@@ -13,14 +13,19 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/nav.js" defer></script>  
 </head>
 <body>
 <div id="pageID" data-pageid="results"></div>
+
+<div id="topWrapper">
  <!-- Logo -->
+<div class="center" id="secondaryLogoWrapper">
  <a href="./index.html">
  <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
 </a>
+</div>
     <!-- START NAV INJECTED FROM nav.js-->
     <nav id="mainNav"></nav>
     <nav id="mobileNav" class="mobile">
@@ -32,19 +37,21 @@
         <img id="mobileNavLogo" src="./img/daisynationallogo2020.png" alt="Daisy Logo">
     </nav>
         <!-- END NAV -->
+
+</div>
     <?php
         if(isset($_GET['year'])){
             $current_year = $_GET['year'];
             $current_dir = "./result_links/$current_year";
             ?>
             
-            <h1 id="galleryHeader"><?php echo("<a href='./results.php'>Results</a> / $current_year");?></h1>
+            <h1 class="page-header" id="galleryHeader"><?php echo("<a href='./results.php'>Results</a> / $current_year");?></h1>
             <div id="galleryContainer">
-            <h3 style="margin-bottom: 3vw;" class="picture-gallery-desc">You can also find the match results by Orion (the electronic system that scored the match) at <a href="http://orionresults.com/team/Search.aspx?Search=Daisy%20Outdoor%20Sports%20Rogers%20AR%20<?php echo$current_year;?>" target="_blank" style="color: white;">www.orionresults.com</a></h3>
+            <h3 style="margin-bottom: 3vw;" class="picture-gallery-desc">You can also find the match results by Orion (the electronic system that scored the match) at <a href="http://orionresults.com/team/Search.aspx?Search=Daisy%20Outdoor%20Sports%20Rogers%20AR%20<?php echo$current_year;?>" target="_blank">www.orionresults.com</a></h3>
             <?php
         // Generate Result Links
         $results = file_get_contents("$current_dir/results.txt");
-        $results = explode(",", $results);
+        $results = explode("`", $results);
         sort($results);
         $results_length = count($results);
         $result_html = "<span>";

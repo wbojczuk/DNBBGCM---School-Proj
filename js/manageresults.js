@@ -70,13 +70,13 @@ allTopEditButtons.forEach((elem)=>{
         result.querySelector(".name-input").addEventListener("input", (evt)=>{
             const currentResult = (currentResults[result.dataset.index].split("~"));
 
-            currentResults[result.dataset.index] = `${(evt.target.value).replace("~", "-")}~${currentResult[1]}`;
+            currentResults[result.dataset.index] = `${((evt.target.value).replace(/~/gi, "-")).replace(/\`/gi, "'")}~${currentResult[1]}`;
         });
         // URL Input
         result.querySelector(".url-input").addEventListener("input", (evt)=>{
             const currentResult = (currentResults[result.dataset.index].split("~"));
 
-            currentResults[result.dataset.index] = `${currentResult[0]}~${(evt.target.value).replace("~", "-")}`;
+            currentResults[result.dataset.index] = `${currentResult[0]}~${((evt.target.value).replace(/~/gi, "-")).replace(/\`/gi, "'")}`;
         });
         // Delete Button
         result.querySelector(".delete-link").addEventListener("click", (evt)=>{
@@ -94,7 +94,7 @@ allTopEditButtons.forEach((elem)=>{
     function addResult(evt){
         const nameVal = (evt.target.parentElement).querySelector("#nameInput").value;
         const urlVal = (evt.target.parentElement).querySelector("#urlInput").value;
-        currentResults.push(`${nameVal.replace("~", "-")}~${urlVal.replace("~", "-")}`);
+        currentResults.push(`${(nameVal.replace(/~/gi, "-")).replace(/\`/gi, "'")}~${(urlVal.replace(/~/gi, "-")).replace(/\`/gi, "'")}`);
         saveChanges();
     }
     //  Save Changes
@@ -111,8 +111,17 @@ allTopEditButtons.forEach((elem)=>{
 
         const saveVal = document.createElement("input");
         saveVal.setAttribute("name", "tosave");
-        saveVal.value = `${currentResults.toString()}`;
-
+        let firstElem = true;
+        let newSaveVal = "";
+        currentResults.forEach((result)=>{
+            if(!firstElem){
+                newSaveVal += "`" + result;
+            }else{
+                newSaveVal += result;
+                firstElem = false;
+            }
+        });
+        saveVal.value = newSaveVal;
         postForm.append(saveVal);
         postForm.append(yearVal);
         document.getElementsByTagName("body")[0].append(postForm);
