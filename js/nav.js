@@ -20,7 +20,7 @@
             <a href="./general_information.html" id="informationLink">Information</a>
             <a class="dropdown-link" id="curriculumLink" >
                 Curriculum
-                <ul class="three">
+                <ul>
                     <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Ten_Lesson_Curriculum_for_Shooting_Education_2013.pdf">Lessons</li>
                     <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Daisy_Shooting_Education_Program_Certificate.pdf">Certificate</li>
                     <li data-target="_blank" data-href="http://www.dwightwatt.com/ibbgcm/Wall_Charts_Avanti.pdf">Wall Chart</li>
@@ -31,7 +31,7 @@
             <a id="contactLink" href="">Contact</a>
             <a id="archivedLink" href="#" class="dropdown-link">
             Archived
-            <ul class="two">
+            <ul>
                 <li>Past Winners</li>
                 <li>Past Locations</li>
             </ul>

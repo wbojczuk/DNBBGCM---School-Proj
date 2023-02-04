@@ -65,6 +65,8 @@
     font-size: 0.8vw;
     background-color: #012a46;
     list-style-type:none;
+    left:0;
+    top:100%;
 }
 /* Hover Box */
 .dropdown-link ul::after{
@@ -78,7 +80,7 @@
     left: -10%;
     z-index: -999;
 }
-.dropdown-link ul.four{
+/* .dropdown-link ul.four{
     transform: translateY(23%) translateX(-85%);
 }
 .dropdown-link ul.three{
@@ -86,7 +88,7 @@
 }
 .dropdown-link ul.two{
     transform: translateY(43%) translateX(-65%);
-}
+} */
 .dropdown-link ul li{
     padding: 0.2vw 0;
     border-bottom: 1px solid rgb(218, 218, 218);

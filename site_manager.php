@@ -23,14 +23,41 @@ session_start();
     
 
 <?php
-// Login
+// Login and Login Timeouts
 if(!isset($_SESSION["login"])){
-    $current_password = "5d7d56918e05d2984f225f44657d80c55bb0365eaedf7f9228ede7d897ca55fc";
+    if(!isset($_SESSION['failedlogins'])){
+        $_SESSION['failedlogins'] = 0;
+        $_SESSION["logintimeout"] = 0;
+    }
     if(isset($_GET["action"]) && $_GET["action"] == "login"){
-        if(hash("sha256", $_POST["loginPass"]) == $current_password){
-            $_SESSION["login"] = "true";
-            echo("<div id='jsReload' data-filename='./site_manager.php'></div>");
-        }else{
+        $current_password = "5d7d56918e05d2984f225f44657d80c55bb0365eaedf7f9228ede7d897ca55fc";
+        $errors = [];
+
+        if($_SESSION["logintimeout"] != 0){
+            if(($_SESSION["logintimeout"] + 120) < date("U")){
+                $_SESSION['failedlogins'] = 2;
+                $_SESSION["logintimeout"] = 0;
+            }
+        }
+        
+            if(!(hash("sha256", $_POST["loginPass"]) == $current_password)){
+                $errors[] = "Incorrect Password!";
+                $_SESSION['failedlogins'] = $_SESSION['failedlogins'] + 1;
+            }
+            if($_SESSION['failedlogins'] > 3){
+                $errors[0] = "Incorrect password too many times, please wait 2 minutes before trying again.";
+                if($_SESSION["logintimeout"] == 0){
+                    $_SESSION["logintimeout"] = date("U");
+                }
+            }
+        
+            if(count($errors) == 0){
+                $_SESSION["failedlogins"] = 0;
+                $_SESSION["logintimeout"] = 0;
+                $_SESSION["login"] = "true";
+                echo("<div id='jsReload' data-filename='./site_manager.php'></div>");
+            }else{
+    
             ?>
             <div class="center"><h1>DNBBGCM Site Manager</h1></div>
         <div class="center" style="height: 100vh;">
@@ -39,9 +66,12 @@ if(!isset($_SESSION["login"])){
         <label for="loginPass">Please Enter Password: </label>
         <input type="password" id="loginPass" name="loginPass"> 
         <input type="submit" value="Submit">
-        <div class="center">
-            <span class="form-error">Incorrect Password!</span>
-        </div>
+        
+            <?php
+            foreach($errors as $error){
+                echo("<div class='center'><div class='form-error'>$error</div></div><br>");
+            }
+            ?>
         </div>
     </form>
     </div>
