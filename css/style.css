@@ -168,6 +168,9 @@ h2{
     font-size: 1.4vw;
     padding: 2vw 20vw;
 }
+.section-two-content span{
+    font-size: 2vw;
+}
 
 
 /* LANDING PAGE STYLES*/
@@ -443,5 +446,8 @@ footer{
     .section-two-content{
         font-size: 2.2vh;
         padding: 2vh 4vh;
+    }
+    .section-two-content span{
+        font-size: 3vh;
     }
 }

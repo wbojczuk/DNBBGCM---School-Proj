@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="./css/sitemanager.css">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/jsreload.js" defer></script>
+    <meta name="robots" content="noindex">
 </head>
 <body>
     
@@ -93,6 +94,9 @@ if(!isset($_SESSION["login"])){
     # DISPLAY AFTER LOGGED IN
     ?>
     <div class="center" ><h1 style=" display:inline-block;margin-top: 10vh;">DNBBGCM Site Manager</h1></div>
+    <div class="center">
+    <a href="./docs/site_documentation.html" target="_blank" class="button-one">Site Documentation</a>
+    </div>
     <div class="center">
         <div id="siteManagerWrapper">
             <a class="site-manager-option" href="./site_manager/manage_events.php">

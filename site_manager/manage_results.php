@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +47,6 @@ if(!isset($_SESSION["login"])){
                     unlink(realpath("$current_dir/{$_POST['foldername']}") . "/$file");
                 }
                 rmdir(realpath("$current_dir/{$_POST['foldername']}"));
-// LEFT OFF HERE FOR RECURSIVE DELETION! -----------------------------------------------------------------------
             }else{
                 rmdir(realpath("$current_dir/{$_POST['foldername']}"));
             }
@@ -78,7 +78,12 @@ if(!isset($_SESSION["login"])){
     <input type="text" name="urlInput" id="urlInput">
     <div id="addResultFinish" class="button-one">Add</div>
 </div>
-    <div id="galleryContainer">
+<div class="center" style="justify-content: space-between; color: rgb(235,235,235); font-size: 2vw; font-family:'Roboto', monospace; padding-left: 15%;
+padding-right: 40%; padding-top: 5vh;">
+            <span>Name</span>
+            <span>URL</span>
+</div>
+    <div id="galleryContainer" style="padding-top: 0;">
     
     
     <!-- Build current folders -->
@@ -131,7 +136,7 @@ if(!isset($_SESSION["login"])){
     $results_length = count($results);
     $gallery_html = "<span>";
     for($i = 0; $i < $results_length; ++$i){
-        $year = $results[$i];
+        $year = ucwords($results[$i]);
         $current_iteration = $i + 1;
         $gallery_html .= "<a class='box-link box-link-no-hover' href='#'>$year
         <div class='edit-folder-bar-top'></div>

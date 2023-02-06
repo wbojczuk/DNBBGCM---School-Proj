@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +99,7 @@ if(!isset($_SESSION["login"])){
             <a style="margin-left: 5vw;" href="#" id="saveChangesButton" class="button-one">Save Changes</a>
         </div>
         <div class="center">
-            <textarea style="margin-top: 2vh;" name="addPhotoInput" id="addPhotoInput" cols="50" rows="10" placeholder='You can Add multiple links at once by separating them with a comma ","'></textarea>
+            <textarea style="margin-top: 2vh;" name="addPhotoInput" id="addPhotoInput" cols="50" rows="10" placeholder='You can Add multiple links at once by separating them with a Tilde "~"'></textarea>
             <div id="addPhotoFinish" class="button-one">Add</div>
         </div>
 <div id="batchDelete" class="button-two">Batch Delete</div><br>
@@ -192,7 +193,7 @@ rsort($years);
 $years_length = count($years);
 $gallery_html = "<span>";
 for($i = 0; $i < $years_length; ++$i){
-    $year = $years[$i];
+    $year = ucwords($years[$i]);
     $current_iteration = $i + 1;
     $gallery_html .= "<a class='box-link box-link-no-hover' href='#'>$year
     <div class='edit-folder-bar-top'></div>

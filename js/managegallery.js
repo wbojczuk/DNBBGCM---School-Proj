@@ -260,7 +260,7 @@ const manageGalleryObj = {
         });
 
         addPhotoFinish.addEventListener("click", ()=>{
-            let newLinks = (addPhotoInput.value).split(",");
+            let newLinks = (addPhotoInput.value).split("~");
             newLinks.forEach((link)=>{
                 allGalleryLinks.push(link);
                 saveChanges();
