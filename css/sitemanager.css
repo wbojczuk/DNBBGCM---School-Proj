@@ -18,7 +18,7 @@ body{
 #siteManagerWrapper{
     display: inline-flex;
     justify-content: center;
-    width: 75%;
+    width: 90%;
     min-height: 10vh;
     background-color: #021E3D;
     margin-top: 20vh;
@@ -51,6 +51,9 @@ body{
 }
 #siteManagerWrapper .site-manager-option:nth-child(3) .site-option-img{
     background-image: url("../img/results.svg");
+}
+#siteManagerWrapper .site-manager-option:nth-child(4) .site-option-img{
+    background-image: url("../img/archive.svg");
 }
 .site-option-title{
     height: 29%;

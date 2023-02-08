@@ -111,6 +111,10 @@ if(!isset($_SESSION["login"])){
                 <div class="site-option-img"></div>
                 <h4 class="site-option-title">Results</h4>
             </a>
+            <a class="site-manager-option" href="./site_manager/manage_archived.php">
+                <div class="site-option-img"></div>
+                <h4 class="site-option-title">Archived</h4>
+            </a>
         </div>
     </div>
     
