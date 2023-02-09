@@ -23,23 +23,11 @@
 <div id="pageID" data-pageid="gallery"></div>
 
 <div id="topWrapper">
- <!-- Logo -->
-<div class="center" id="secondaryLogoWrapper">
- <a href="./index.html">
- <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
-</a>
-</div>
-    <!-- START NAV INJECTED FROM nav.js-->
-    <nav id="mainNav"></nav>
-    <nav id="mobileNav" class="mobile">
-        <div id="mobileNavMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <img id="mobileNavLogo" src="./img/daisynationallogo2020.png" alt="Daisy Logo">
-    </nav>
-        <!-- END NAV -->
+    <!-- Logo -->
+    <?php include("./inc/inc_logo.php"); ?>
+
+    <!-- NAV BAR FROM PHP -->
+    <?php include("./inc/inc_nav.php"); ?>
 </div>
 
         <?php

@@ -171,6 +171,9 @@ h2{
 .section-two-content span{
     font-size: 2vw;
 }
+.section-two-content a{
+    color: var(--section-two-text);
+}
 
 
 /* LANDING PAGE STYLES*/
@@ -283,7 +286,7 @@ a:has(#secondaryLogo){
 
 /* THIRD SECTION */
 #mainSectionThree{
-    background-color: #e8f3ff;
+    background-color: rgb(235,235,235);
     width: 100%;
     height: 20vh;
 }
@@ -322,10 +325,20 @@ footer{
     padding: 1vw 0 ;
 }
 
+/* ARCHIVES */
+.archived-wrapper div span{
+    text-align: center;
+    display: inline;
+    font-size: 1.5vw;
+}
+
 
 
 /* Mobile Styles */
 @media only screen and (max-width: 600px) {
+    .archived-wrapper div span{
+        font-size: 2vh;
+    }
     
     .mobile{
         display: inline-block;

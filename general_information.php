@@ -1,5 +1,5 @@
 <!-- 
-    Program: schedule.html
+    Program: general_information.php
     Creator: William Bojczuk (wiliambojczuk@gmail.com)
     Github: https://github.com/wbojczuk
  -->
@@ -23,23 +23,10 @@
  
  <div id="topWrapper">
   <!-- Logo -->
- <div class="center" id="secondaryLogoWrapper">
-  <a href="./index.html">
-  <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="secondaryLogo">
- </a>
- </div>
+ <?php include("./inc/inc_logo.php"); ?>
  
-     <!-- START NAV INJECTED FROM nav.js-->
-     <nav id="mainNav"></nav>
-     <nav id="mobileNav" class="mobile">
-         <div id="mobileNavMenu">
-             <span></span>
-             <span></span>
-             <span></span>
-         </div>
-         <img id="mobileNavLogo" src="./img/daisynationallogo2020.png" alt="Daisy Logo">
-     </nav>
-     <!-- END NAV -->
+     <!-- NAV BAR FROM PHP -->
+     <?php include("./inc/inc_nav.php"); ?>
  </div>
         <h1 class="page-header">Information</h1>
     <section class="section-two">
@@ -184,8 +171,6 @@
             </section>
     
 
-     <footer>
-        <span>William Bojczuk &copy; 2023, Email <a href="mailto:dwightwatt@dwightwatt.com">dwightwatt@dwightwatt.com</a> for web site problems, suggestions or for information on the match.</span>
-    </footer>
+            <?php include("./inc/inc_footer.php"); ?>
 </body>
 </html>

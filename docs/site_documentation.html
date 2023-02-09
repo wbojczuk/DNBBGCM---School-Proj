@@ -1,4 +1,4 @@
-u<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -117,8 +117,8 @@ u<!DOCTYPE html>
 <h3>Navigation</h3>
     
     <p>
-    If you need to ever add/remove/edit a link on the Navigation. All Navigation code that is editable resides in the <em>nav.js</em> file in the <em>js</em> folder. The HTML is stored at the top of the nav.js file so that you only have to change the navbar once and it reflects everywhere on the site.<br>
-    &bull; <strong>Adding/Deleting a item:</strong> A single level link can be added in the format:
+    If you need to ever add/remove/edit a link on the Navigation. All Navigation code that is editable resides in the <em>inc_nav.php</em> file in the <em>inc</em> folder. You only have to change the navbar once and it reflects everywhere on the site.<br>
+    &bull; <strong>Adding/Deleting a item:</strong> Items should be added in the nav element with an id of <em>mainNav</em>. A single level link can be added in the format:
         <br></p>
         <pre><code class="language-markup"><!--<a href="./page_title.html" id="pageTitle">Page Title</a>--></code></pre>
         <br>
@@ -136,7 +136,7 @@ u<!DOCTYPE html>
             <br>
             <h3>Expand Links</h3>
             <p>
-                On the information page there are Expand links for the FAQ. To edit the existing ones, go into the "general_information.html" page and find the links, each link is in the syntax below:</p>
+                On the information page there are Expand links for the FAQ. To edit the existing ones, go into the "general_information.php", or "contact.php" page and find the links, each link is in the syntax below:</p>
                 <pre><code class="language-markup"><!--
                     <div class="dropdown-info-item">
                         <div class="dropdown-info-title">
@@ -151,7 +151,8 @@ u<!DOCTYPE html>
                 <p>To add these to another page: <br>
                     -Include this in the head of the page.
             </p>
-            <pre><code class="language-markup"><!--<script src="./js/dropdowninfo.js" defer></script>--></code></pre>
+            <pre><code class="language-markup"><!--<script src="./js/dropdowninfo.js" defer></script>
+<link rel="stylesheet" href="./css/dropdowninfo.css">--></code></pre>
             <p>
                 -Then you add the Wrapper to page in the format below:
                 <pre><code class="language-markup"><!--

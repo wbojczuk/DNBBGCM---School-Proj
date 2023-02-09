@@ -122,7 +122,7 @@ padding-right: 40%; padding-top: 5vh;">
         <a href="../site_manager.php" class="button-one" id="previousPage">< Home</a>
         <div class="center" ><h1 style=" display:inline-block;margin-top: 10vh;">Results Manager</h1></div>
     <div class="center">
-        <a href="#" id="addFolderButton" class="button-one">Add Folder</a>
+        <a href="#" id="addFolderButton" class="button-one">Add Year</a>
     </div>
     <div id="galleryContainer">
     

@@ -71,7 +71,7 @@
     width: 100%;
     aspect-ratio: 1/0.9;
     border: 1px solid transparent;
-    background-color: rgba(221, 221, 221, 0.705);
+    background-color: rgba(246, 240, 240, 0.863);
     cursor: pointer;
     position: relative;
   }
@@ -88,7 +88,7 @@
     overflow: hidden;
   }
   .calendar-grid-item:hover{
-    background-color: rgba(191, 191, 191, 0.705);
+    background-color: rgba(255, 255, 255, 0.863);
   }
   .calendar-grid-item-title{
     text-align: right;
@@ -117,7 +117,10 @@
   }
 
   .calendar-grid-item.current-day{
-    background-color: rgba(246, 240, 240, 0.863);
+    background-color: rgba(221, 221, 221, 0.705);
+  }
+  .calendar-grid-item.current-day:hover{
+    background-color: rgba(241, 241, 241, 0.705);
   }
 
  /* Event Expanded Styles */
@@ -225,5 +228,8 @@
 }
 .event-item{
   margin-top: 3%;
+}
+#eventExpanded h2{
+  padding: 4vh 0 4% 5%;
 }
 }

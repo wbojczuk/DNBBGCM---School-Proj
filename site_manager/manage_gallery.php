@@ -179,7 +179,7 @@ echo $gallery_html;
         <h1 style=" display:inline-block;margin-top: 10vh;">Gallery Manager</h1>
     </div>
     <div class="center">
-        <a href="#" id="addFolderButton" class="button-one">Add Folder</a>
+        <a href="#" id="addFolderButton" class="button-one">Add Year</a>
     </div>
     <div id="galleryContainer">
 
