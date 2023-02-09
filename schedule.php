@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/schedule.css">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/nav.js" defer></script>
-    <script src="./js/importeventdata.js" type="module" defer></script>
+    <script src="./js/import/importeventdata.js" type="module" defer></script>
     <script src="./js/calendar.js" defer></script>
     
 </head>

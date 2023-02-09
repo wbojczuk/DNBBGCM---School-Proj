@@ -16,7 +16,6 @@ const manageGalleryObj = {
         // YEAR/FOLDER EDIT BUTTON LISTENERS
         const allEditButtons = document.querySelectorAll(".edit-folder-bar");
         allEditButtons.forEach((elem)=>{
-            console.log("hey")
             elem.querySelector(".edit").addEventListener("click", editFolderName);
             elem.querySelector(".delete").addEventListener("click", deleteFolder);
 
@@ -26,24 +25,6 @@ const manageGalleryObj = {
             elem.addEventListener("click", openFolder);
         });
 
-        }else if(document.getElementById("addCategoryButton")){
-            // ------------------ IF USER IS VIEWING CATEGORIES ----------------------
-
-        // Add Category Button
-        document.getElementById("addCategoryButton").addEventListener("click", addCategory);
-
-        // CATEGORY EDIT BUTTON LISTENERS
-        const allEditButtons = document.querySelectorAll(".edit-category-bar");
-        allEditButtons.forEach((elem)=>{
-            elem.querySelector(".edit").addEventListener("click", editCategoryName);
-            elem.querySelector(".delete").addEventListener("click", deleteCategory);
-
-        });
-        const allTopEditButtons = document.querySelectorAll(".edit-category-bar-top");
-        allTopEditButtons.forEach((elem)=>{
-            elem.addEventListener("click", openCategory);
-        });
-    
         }
 
         // ADD FOLDER
@@ -52,11 +33,15 @@ const manageGalleryObj = {
             if (folderName != null) {
                 const postForm = document.createElement("form");
                 postForm.setAttribute("method", "post");
-                postForm.setAttribute("action", `./manage_archived.php?action=addfolder&type=${document.getElementById("currentType").dataset.value}`);
+                postForm.setAttribute("action", `./manage_archived.php?action=addfolder`);
                 postForm.style.display = "none";
                 const nameVal = document.createElement("input");
                 nameVal.setAttribute("name", "foldername");
-                nameVal.value = folderName;
+                nameVal.value = (folderName).trim();
+                const typeVal = document.createElement("input");
+                typeVal.setAttribute("name", "type");
+                typeVal.value = document.getElementById("currentType").dataset.value;
+               postForm.append(typeVal);
                 postForm.append(nameVal);
                 document.getElementsByTagName("body")[0].append(postForm);
                 postForm.submit();
@@ -73,12 +58,17 @@ const manageGalleryObj = {
                 postForm.style.display = "none";
                 const nameVal = document.createElement("input");
                 nameVal.setAttribute("name", "newname");
-                nameVal.value = folderName;
+                nameVal.value = (folderName).trim();
                  const oldNameVal = document.createElement("input");
                  oldNameVal.setAttribute("name", "oldname");
-                 oldNameVal.value = (evt.target.parentNode).parentNode.textContent;
+                 oldNameVal.value = ((evt.target.parentNode).parentNode.textContent).trim();
+                 const typeVal = document.createElement("input");
+                 typeVal.setAttribute("name", "type");
+                 typeVal.value = document.getElementById("currentType").dataset.value;
+                postForm.append(typeVal);
                 postForm.append(nameVal);
                 postForm.append(oldNameVal);
+                
                 document.getElementsByTagName("body")[0].append(postForm);
                 postForm.submit();
                 
@@ -93,7 +83,11 @@ const manageGalleryObj = {
                 postForm.style.display = "none";
                 const nameVal = document.createElement("input");
                 nameVal.setAttribute("name", "foldername");
-                nameVal.value = (evt.target.parentNode).parentNode.textContent;
+                nameVal.value = ((evt.target.parentNode).parentNode.textContent).trim();
+                const typeVal = document.createElement("input");
+                 typeVal.setAttribute("name", "type");
+                 typeVal.value = document.getElementById("currentType").dataset.value;
+                postForm.append(typeVal);
                 postForm.append(nameVal);
                 document.getElementsByTagName("body")[0].append(postForm);
                 postForm.submit();
@@ -108,103 +102,13 @@ const manageGalleryObj = {
                 const nameVal = document.createElement("input");
                 nameVal.setAttribute("name", "year");
                 nameVal.value = (evt.target.parentNode.textContent).trim();
+                const typeVal = document.createElement("input");
+                 typeVal.setAttribute("name", "type");
+                 typeVal.value = document.getElementById("currentType").dataset.value;
+                postForm.append(typeVal);
                 postForm.append(nameVal);
                 document.getElementsByTagName("body")[0].append(postForm);
                 postForm.submit();
-        }
-
-        // Add Category
-        function addCategory(){
-            let categoryName = prompt("Enter Category Name", "Untitled");
-            if (categoryName != null) {
-                const postForm = document.createElement("form");
-                postForm.setAttribute("method", "post");
-                postForm.setAttribute("action", "./manage_archived.php?action=addcategory");
-                postForm.style.display = "none";
-                const nameVal = document.createElement("input");
-                nameVal.setAttribute("name", "categoryname");
-                nameVal.value = formatNametoVal(categoryName);
-                const yearVal = document.createElement("input");
-                yearVal.setAttribute("name", "year");
-                yearVal.value = document.getElementById("yearHeader").textContent;
-                postForm.append(nameVal);
-                postForm.append(yearVal);
-                document.getElementsByTagName("body")[0].append(postForm);
-                postForm.submit();
-            }
-        }
-
-        // EDIT CATEGORY NAME
-        function editCategoryName(evt){
-            let categoryName = prompt("Enter Folder Name", ((evt.target.parentNode).parentNode.textContent).trim());
-            if (categoryName != null) {
-                const postForm = document.createElement("form");
-                postForm.setAttribute("method", "post");
-                postForm.setAttribute("action", "./manage_archived.php?action=editcategoryname");
-                postForm.style.display = "none";
-
-                const nameVal = document.createElement("input");
-                nameVal.setAttribute("name", "newname");
-                nameVal.value = formatNametoVal(categoryName);
-
-                 const oldNameVal = document.createElement("input");
-                 oldNameVal.setAttribute("name", "oldname");
-                 oldNameVal.value = formatNametoVal(((evt.target.parentNode).parentNode.textContent).trim());
-
-                 const yearVal = document.createElement("input");
-                yearVal.setAttribute("name", "year");
-                yearVal.value = document.getElementById("yearHeader").textContent.trim();
-
-                postForm.append(nameVal);
-                postForm.append(oldNameVal);
-                postForm.append(yearVal);
-                document.getElementsByTagName("body")[0].append(postForm);
-                postForm.submit();
-                
-            }
-        }
-
-        // Delete Category
-        function deleteCategory(evt){
-            if(confirm("Are you sure you want to delete this album and all it's contents?")){
-                const postForm = document.createElement("form");
-                postForm.setAttribute("method", "post");
-                postForm.setAttribute("action", "./manage_archived.php?action=delcategory");
-                postForm.style.display = "none";
-                const nameVal = document.createElement("input");
-                nameVal.setAttribute("name", "categoryname");
-                nameVal.value = formatNametoVal(((evt.target.parentNode).parentNode.textContent).trim());
-                const yearVal = document.createElement("input");
-                yearVal.setAttribute("name", "year");
-                yearVal.value = document.getElementById("yearHeader").textContent.trim();
-                postForm.append(yearVal);
-                postForm.append(nameVal);
-                document.getElementsByTagName("body")[0].append(postForm);
-                postForm.submit();
-            }
-        }
-
-        // Open Category
-        function openCategory(evt){
-            const postForm = document.createElement("form");
-            postForm.setAttribute("method", "post");
-            postForm.setAttribute("action", "./manage_archived.php");
-            postForm.style.display = "none";
-            const nameVal = document.createElement("input");
-            nameVal.setAttribute("name", "category");
-            nameVal.value = formatNametoVal(((evt.target.parentNode).textContent).trim());
-            const yearVal = document.createElement("input");
-            yearVal.setAttribute("name", "year");
-            yearVal.value = document.getElementById("yearHeader").textContent.trim();
-            postForm.append(yearVal);
-            postForm.append(nameVal);
-            document.getElementsByTagName("body")[0].append(postForm);
-            postForm.submit();
-        }
-
-        // Formtat 'Test Val' to 'test_val'
-        function formatNametoVal(str){
-            return( `${(str.toLowerCase()).replace(" ", "_")}`);
         }
 
     },
@@ -221,52 +125,26 @@ const manageGalleryObj = {
         });
         function checkSaved(){
             if(unSavedChanges){
-                return "There are unsaved chanegs on this page, are you sure you want to exit?";
+                return "There are unsaved changes on this page, are you sure you want to exit?";
             }
         }
 
         // Links imported from PHP
-        const allGalleryLinks = [...allLinks];
-        // Batch Select State
-        let amtChecked = 0;
+        const allCurrentLinks = [...allLinks];
         
-
         // Element Refs
-        const addPhotoFinish = document.getElementById("addPhotoFinish");
-        const addPhotoInput = document.getElementById("addPhotoInput");
-        const batchDeleteButton = document.getElementById("batchDelete");
         const saveButton = document.getElementById("saveChangesButton");
-        const addPhotoButton = document.getElementById("addPhotoButton");
         const allLinkElems = document.querySelectorAll(".manage-link");
 
-        
-        // "Add Photo" Button Listeners
-        let inputOpen = false;
-        addPhotoButton.addEventListener("click", ()=>{
-            if(!inputOpen){
-                addPhotoInput.parentElement.style.display = "flex";
-            }else{
-                addPhotoInput.parentElement.style.display = "none";
-                addPhotoFinish.style.display = "none";
+        const currentYear = document.getElementById("currentYear").dataset.value;
+        const currentType = document.getElementById("currentType").dataset.value;
+        const allCurrentLinksLength = allCurrentLinks.length;
+        let currentIndex = 0;
+        for(let i = 0; i < allCurrentLinksLength; ++i){
+            if(allCurrentLinks[i].date == currentYear){
+                currentIndex = i;
             }
-            inputOpen = !inputOpen;
-        });
-
-        addPhotoInput.addEventListener("input", ()=>{
-            if(addPhotoInput.value !== ""){
-                addPhotoFinish.style.display = "inline-block";
-            }else{
-                addPhotoFinish.style.display = "none";
-            }
-        });
-
-        addPhotoFinish.addEventListener("click", ()=>{
-            let newLinks = (addPhotoInput.value).split("~");
-            newLinks.forEach((link)=>{
-                allGalleryLinks.push(link);
-                saveChanges();
-            });
-        });
+        }
 
         // Save Button Event listener
         saveButton.addEventListener("click", saveChanges);
@@ -274,70 +152,37 @@ const manageGalleryObj = {
         // Events on each of the exisiting links
         allLinkElems.forEach((elem)=>{
             // LINK INPUT
-            elem.addEventListener("input", (evt)=>{
-                allGalleryLinks[evt.target.dataset.count] = evt.target.value;
-            });
-            // DELETE BUTTON
-            elem.parentElement.querySelector(".delete-link").addEventListener("click", (evt)=>{
-                if(confirm("Are you sure you want to delete this link?")){
-                    allGalleryLinks.splice((evt.target.parentNode).querySelector("input[type='text']").dataset.count,1);
-                    saveChanges();
-                }
-            });
-            // CHECKBOX
-            elem.parentElement.querySelector(".check-link").addEventListener("change", (evt)=>{
-                if(evt.target.checked){
-                    ++amtChecked;
-                }else{
-                    --amtChecked;
-                }
-                if(amtChecked > 0){
-                    batchDeleteButton.style.visibility = "visible";
-                }else{
-                    batchDeleteButton.style.visibility = "hidden";
-                }
-            });
-
+            if(currentType == "winner"){
+                elem.addEventListener("input", (evt)=>{
+                    allCurrentLinks[currentIndex].winners[evt.target.dataset.count] = evt.target.value;
+                });
+            }else if(currentType == "location"){
+                elem.addEventListener("input", (evt)=>{
+                    allCurrentLinks[currentIndex].loc = evt.target.value;
+                });
+            }
             
     });
-
-    // Batch Delete All Selected Links
-    batchDeleteButton.addEventListener("click", ()=>{
-        if(confirm("Are you sure you want to delete all the selected links?")){
-            const allDelLinks = document.querySelectorAll(".check-link:checked");
-            const delVals = [];
-            allDelLinks.forEach((link)=>{
-                delVals.push((link.parentNode).querySelector("input[type='text']").value);
-            });
-            delVals.forEach((val)=>{
-                allGalleryLinks.splice(allGalleryLinks.indexOf(val),1);
-            });
-            saveChanges();
-        }
-    });
-
     // Convert changes to JSON Format and POST to be saved by PHP
     function saveChanges(){
+        
         window.onbeforeunload = "";
         const postForm = document.createElement("form");
             postForm.setAttribute("method", "post");
             postForm.setAttribute("action", "./manage_archived.php?action=savejson");
             postForm.style.display = "none";
-            const nameVal = document.createElement("input");
-            nameVal.setAttribute("name", "category");
-            nameVal.value = document.getElementById("currentCategory").dataset.value;
             const yearVal = document.createElement("input");
             yearVal.setAttribute("name", "year");
             yearVal.value = document.getElementById("currentYear").dataset.value;
             const saveVal = document.createElement("input");
             saveVal.setAttribute("name", "tosave");
-            const newSaveVal = allGalleryLinks.map((link)=>{
-                return `"${link}"`
-            })
-            saveVal.value = `[${newSaveVal.toString()}]`;
+            saveVal.value = JSON.stringify(allCurrentLinks);
+            const typeVal = document.createElement("input");
+                 typeVal.setAttribute("name", "type");
+                 typeVal.value = document.getElementById("currentType").dataset.value;
+                postForm.append(typeVal);
             postForm.append(saveVal);
             postForm.append(yearVal);
-            postForm.append(nameVal);
             document.getElementsByTagName("body")[0].append(postForm);
             postForm.submit();
     }
@@ -347,7 +192,7 @@ const manageGalleryObj = {
     }
 };
 // Determine if viewing links or not
-if(document.getElementById("addPhotoButton")){
+if(document.getElementById("saveChangesButton")){
     manageGalleryObj.linkManager();
 }else if(document.getElementById("currentType")){
     manageGalleryObj.init();

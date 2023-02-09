@@ -16,7 +16,7 @@ document.querySelectorAll("input[type='text'], textarea").forEach((elem)=>{
 });
 function checkSaved(){
     if(unSavedChanges){
-        return "There are unsaved chanegs on this page, are you sure you want to exit?";
+        return "There are unsaved changes on this page, are you sure you want to exit?";
     }
 }
 
