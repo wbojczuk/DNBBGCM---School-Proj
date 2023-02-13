@@ -1,0 +1,59 @@
+<!-- 
+    Program: index.php
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNBBGCM - Daisy National BB Gun Championship Match</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <script src="./js/nav.js" defer></script>
+    <script src="./js/confetti.js" defer></script>
+</head>
+<body style="background: #0A2F59;">
+    <div id="pageID" data-pageid="home"></div>
+    
+    <section id="landingPage">
+        <!-- MAIN Logo -->
+        <img src="./img/daisynationallogo2020.png" alt="Daisy Logo" id="mainLogo">
+        <!-- NAV BAR FROM PHP -->
+        <?php include("./inc/inc_nav.php"); ?>
+
+        <div id="mainDesc">
+            <strong>Daisy Outdoor Products</strong> and other organizations annually sponsor the Shooting Education Program to teach young people gun safety and introduce them to the sport of shooting.
+            The 2022 match will be held in Rogers, Arkansas. Registration deadline is <strong>May 16</strong>. Currently the schedule and rules are posted. <br>
+            <strong>2022 Dates: </strong> June 29 - July 3
+            <div class="center">
+                <a href="https://nationals.daisy.com/" target="_blank" style="margin-top: 1vw;" class="button-one">Register</a>
+            </div>
+        </div>
+        <a href="#mainSectionTwo" id="landingDownArrow"></a>
+    </section>
+
+    <section id="mainSectionTwo">
+        <h1 id="discussionHeader">Join the discussion</h1>
+        <article id="discussionContent">
+            We have a discussion board for coaches and parents to share information and ask questions and get asistance from other coaches. It requires joining and to keep members from being spammed, Dwight Watt will approve requests to join, the first message sent will must be approved and then you will be able to post messages and not be reviewed. This is for protection of members of the discussion board.
+            Send an email to <a href="mailto:dwight@dwightwatt.com">dwight@dwightwatt.com</a> if you have questions about the discussion board.
+            To subscribe email Dwight at <a href="mailto:dwight@dwightwatt.com">dwight@dwightwatt.com</a> and request to subscribe and Dwight will subscribe you. Once you have been added by Dwight, you can access the group <a href="https://groups.google.com/g/dnbbgcm-daisy-nation-airgun-match" target="_blank">here</a>.
+            <div id="discussionLinks">
+                <a href="mailto:dwight@dwightwatt.com" class="button-two">Email Dwight</a>
+                <a href="https://groups.google.com/g/dnbbgcm-daisy-nation-airgun-match" target="_blank" class="button-two">Group Link</a>
+            </div>
+        </article>
+    </section>
+
+    <section id="mainSectionThree">
+        <h2 id="confettiText" class="confetti-text">Congratulations!</h2>
+        <p>To <strong>Walton County 4-H</strong> for winning in 2022.</p>
+    </section>
+
+    <?php include("./inc/inc_footer.php"); ?>
+</body>
+</html>

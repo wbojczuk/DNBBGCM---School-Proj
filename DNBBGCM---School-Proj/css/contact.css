@@ -1,0 +1,64 @@
+/*
+ Program: contact.css
+ Creator: William Bojczuk (wiliambojczuk@gmail.com)
+ Github: https://github.com/wbojczuk
+
+ Description: Sets the styling for content specific to the "Contact" page.
+*/
+
+.contact-box{
+    font-family: "Roboto", monospace;
+    display: inline-block;
+   height: 100%;
+    /* background-color: #0e4d7a; */
+    border: 0px solid transparent;
+    border-radius: 10px;
+    margin: 0 3vw;
+}
+div.center:has(.contact-box){
+    height: 30vw;
+}
+.contact-title{
+    font-weight: 600;
+    font-family: "Roboto", monospace;
+    font-size: 2.5em;
+    margin-top: 5vw;
+    color: #0A2F59;
+}
+
+.contact-content{
+    margin: 1vw 0 0 1vw;
+    font-size: 1.5em;
+}
+
+.contact-separator{
+    display: inline-block;
+    height: 100%;
+    width: 2px;
+    margin: 0 1vw;
+    background: linear-gradient(180deg, #0a2f593d 0%, #0a2f59ce 25%, #0A2F59 50%, #0a2f59ce 75%, #0a2f593d 100%);
+    border: 0px solid transparent;
+    border-radius: 50%;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    div.center:has(.contact-box){
+        height: 70vh;
+    }
+    .contact-separator{
+        width: 4px;
+    }
+    .contact-content{
+        margin-bottom: 5vh;
+        font-size: 1.2em;
+    }
+    .contact-box{
+       height: 80%;
+        /* background-color: #0e4d7a; */
+        border: 0px solid transparent;
+        border-radius: 10px;
+        margin: 0 3vw;
+        margin-top: 20%
+    }
+}

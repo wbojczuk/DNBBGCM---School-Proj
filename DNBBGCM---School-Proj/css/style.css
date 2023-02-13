@@ -1,0 +1,550 @@
+/*
+    Program: style.css
+    Creator: William Bojczuk (wiliambojczuk@gmail.com)
+    Github: https://github.com/wbojczuk
+      
+    Description: All generic styles. and styles for the main page.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* -------- Generic Styles -------- */
+:root{
+    --section-two-bg: #0A2F59;
+    --section-two-text: rgb(235, 235, 235);
+}
+*{
+    margin:0;
+    padding:0;
+}
+a:hover{
+    text-decoration: underline;
+}
+.mobile{
+    display: none;
+}
+#pageID{
+    display: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    position: relative;
+    overflow-x: hidden;
+    background-color: rgb(235, 235, 235);
+    min-height: 90vh;
+    padding-bottom: 5vh;
+}
+h1{
+    margin: 2% 0;
+    font-size: 5vw;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    color: rgb(235, 235, 235);
+}
+.page-header{
+    margin: 2% 0 2% 5%;
+    color:#0A2F59;
+    background-color: rgb(235, 235, 235);
+}
+.page-header::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100vw;
+    height: 8px;
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -5vw;
+    background-color: #0A2F59;
+    z-index: -10;
+}
+h2{
+    font-size: 3.5vw;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+}
+
+footer a{
+    color:rgb(206, 206, 206);
+}
+footer{
+    text-align: center;
+    width: 100vw;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    background-color: #011225;
+    padding: 1vw 0 ;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-one{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(72, 143, 235);
+    padding: 0.4vw 1.3vw;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    font-weight: 400;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 1vw;
+    transition: 0.3s background-color ease-in-out;
+}
+.button-one:hover{
+    background-color: rgb(118, 178, 255);
+}
+.button-two{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(233, 233, 233);
+    padding: 0.5vw 1.5vw;
+    border: 0px solid transparent;
+    border-radius: 2px;
+    font-weight: 400;
+    font-family: sans-serif;
+    font-size: 1vw;
+    transition: 0.3s background-color ease-in-out;
+    font-family:  sans-serif;
+    font-weight: 400;
+}
+.button-two:hover{
+    background-color: rgb(141, 141, 141);
+}
+
+.box-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 2vw;
+    width: 15vw;
+    aspect-ratio: 2/1;
+    background-color: #115586;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    filter: drop-shadow(5px 5px 4px #000);
+    margin: 1vw;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.15s transform ease-in-out;
+    position: relative;
+    text-decoration: none;
+    color: rgb(235, 235, 235);
+    font-weight: 600;
+    
+}
+
+.box-link::after{
+    opacity: 0;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -2px;
+    right:-2px;
+    height: 0;
+    width: 0;
+    border-bottom: 4px solid #e00000;
+    border-right: 4px solid #16a2ff;
+    border-radius: 2px;
+    filter: blur(1px);
+    transition: 0.3s width ease-in-out, 0.3s height ease-in-out, 0.3s opacity ease-in-out;
+    pointer-events: none;
+}
+
+.box-link::before{
+    opacity: 0;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    height: 0;
+    width: 0;
+    border-left: 4px solid white;
+    border-top: 4px solid white;
+    filter: blur(1px);
+    border-radius: 2px;
+    transition: 0.3s width ease-in-out, 0.3s height ease-in-out, 0.3s opacity ease-in-out;
+} 
+
+.box-link:hover{
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.box-link:hover::after{
+    opacity: 1;
+    width: 99%;
+    height: 99%;
+}
+
+.box-link:hover::before{
+    opacity: 1;
+    width: 99%;
+    height: 99%;
+}
+
+
+/* -------- Generic Section Styling -------- */
+.section-one{
+    background-color: rgb(235, 235, 235);
+    width: 100%;
+    min-height: 10vh;
+}
+.section-one-header{
+    color: #0A2F59;
+    position: relative;
+    margin: 2% 0 0 0;
+}
+.section-one-header::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 6vw;
+    left: -6vw;
+    top: calc(50% - 2px);
+    background-color: #0A2F59;
+}
+.section-one-header::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 6vw;
+    right: -6vw;
+    top: calc(50% - 2px);
+    background-color: #0A2F59;
+}
+.section-two{
+    background-color: var(--section-two-bg);
+    width: 100%;
+    min-height: 10vh;
+    color: var(--section-two-text);
+}
+.section-two-header{
+    color: var(--section-two-text);
+    position: relative;
+    margin: 2vh 0;
+}
+.section-two-header::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 110%;
+    left: -5%;
+    top: -6px;
+    background-color: var(--section-two-text);
+}
+.section-two-header::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 110%;
+    left: -5%;
+    bottom: -6px;
+    background-color: var(--section-two-text);
+}
+.section-two-content{
+    font-size: 1.4vw;
+    padding: 2vw 20vw;
+}
+.section-two-content span{
+    font-size: 2vw;
+}
+.section-two-content a{
+    color: var(--section-two-text);
+}
+
+
+/* -------- LANDING PAGE STYLES -------- */
+#landingPage{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/mainbg.jpg");
+    position: relative;
+}
+#mainLogo{
+    width: 40%;
+    position: relative;
+    left: 30%;
+    margin-top: 5vh;
+}
+#secondaryLogo{
+    width: 100%;
+    position: relative;
+}
+a:has(#secondaryLogo){
+    display: inline-block;
+    width: 15%;
+}
+#secondaryLogoWrapper{
+    padding: 2vh 0;
+}
+#topWrapper{
+    background-color: #115586;
+    padding-bottom: 4vh;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.7);
+}
+
+/* Short Desc */
+#mainDesc{
+    display: inline-block;
+    width: 40%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    margin: 10vh 0 0 26.5%;
+    padding: 2% 3%;
+    color: white;
+    font-size: 1vw;
+}
+
+/* Logo */
+#landingDownArrow{
+    display: inline-block;
+    position: absolute;
+    bottom: 1vw;
+    left: calc(50% - 2.2vw);
+    width: 4vw;
+    aspect-ratio: 1/0.7;
+    background-image: url("../img/caret-down.svg");
+    background-size: 100%;
+    background-position: center;
+    animation: down-arrow 1.8s infinite;
+}
+@keyframes down-arrow{
+    0%{
+        bottom: 1vw;
+        opacity: 0;
+    }
+    30%{
+        bottom: 1vw;
+        opacity: 1;
+    }
+    100%{
+        bottom:0;
+        opacity: 0;
+    }
+}
+
+/* -------- HOMEPAGE SECOND SECTION -------- */
+#mainSectionTwo{
+    width: 100%;
+    height: 60vh;
+    /* background-color: #161719; */
+    color:rgb(252, 252, 252);
+    font-family: sans-serif;
+}
+
+#discussionHeader{
+    font-size: 5vw;
+    display: inline-block;
+    width: 50%;
+    margin: 5vh 0 0 3vw;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+#discussionContent{
+    font-size: 1.5vw;
+    display: inline-block;
+    width: 60%;
+    margin-top: 1vw;
+    margin-left: 10vw;
+}
+#discussionContent a:not(.button-two){
+    color:rgb(206, 206, 206);
+}
+#discussionLinks{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1vw;
+}
+#discussionLinks a{
+    margin: 0 1vw;
+}
+
+/* -------- HOMEPAGE THIRD SECTION -------- */
+#mainSectionThree{
+    background-color: rgb(235,235,235);
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 20vh;
+}
+.confetti-text{
+    background-color: #1a6cb98e;
+    margin: 4vh 0 0 10vw;
+    cursor: pointer;
+}
+.confetti-text:hover{
+    background-color: #2997ff8e;
+}
+#mainSectionThree p{
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5vw;
+    margin-left: 32vw;
+}
+
+/* -------- ARCHIVES -------- */
+.archived-wrapper div span{
+    text-align: center;
+    display: inline;
+    font-size: 1.5vw;
+}
+
+
+
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    .archived-wrapper div span{
+        font-size: 2vh;
+    }
+    
+    .mobile{
+        display: inline-block;
+    }
+    .desktop{
+        display: none;
+    }
+    .button-one{    
+        padding: 0.3vh 1vh;
+        font-size: 2vh;
+    }
+    .box-link{
+        font-size: 2vh;
+        width: 12vh;
+        margin: 1vh;
+        color: rgb(236, 236, 236);
+        border-radius: 5px;
+    }
+    .box-link::after{
+        display: none;
+    }
+    .box-link::before{
+        display: none;
+    }
+    h1{
+        font-size: 5vh;
+    }
+    h2{
+        font-size: 4vh;
+    }
+    #landingPage{
+        
+    }
+    #mainLogo{
+        width: 80%;
+        position: relative;
+        left: 10%;
+        margin-top: 20vh;
+    }
+    #secondaryLogo{
+        width: 50%;
+        left: 25%;
+        margin-top: 2vh;
+    }
+    #mainDesc{
+        display: inline-block;
+        width: 90%;
+        background-color: rgba(0,0,0,0.5);
+        text-align: center;
+        margin: 10vh 0 0 2%;
+        padding: 2% 3%;
+        color: white;
+        font-size: 1.7vh;
+    }
+
+    #landingDownArrow{
+        display: inline-block;
+        position: absolute;
+        bottom: 2vh;
+        left: calc(50% - 9vw);
+        width: 18vw;
+        aspect-ratio: 1/0.7;
+        background-image: url("../img/caret-down.svg");
+        background-size: 100%;
+        background-position: center;
+        animation: down-arrow-mobile 1.8s infinite;
+    }
+    @keyframes down-arrow-mobile{
+        0%{
+            bottom: 2vh;
+            opacity: 0;
+        }
+        30%{
+            bottom: 2vh;
+            opacity: 1;
+        }
+        100%{
+            bottom:0;
+            opacity: 0;
+        }
+    }
+    #mainSectionTwo{
+        padding-top: 4vh;
+    }
+    #mainSectionThree p{
+        font-size: 2.5vh;
+        margin-left: 10vw;
+    }
+    .confetti-text{
+        margin: 4vh 0 1vh 1vw;
+        cursor: pointer;
+    }
+    
+    #discussionHeader{
+        margin-top: 2vh;
+        font-size: 5vh;
+        width: 100%;
+       text-align: left;
+    }
+    #discussionContent{
+        font-size: 2vh;
+        display: inline-block;
+        width: 90%;
+        margin-top: 1vw;
+        margin-left: 5%;
+    }
+    #discussionContent a:not(.button-two){
+        color:rgb(206, 206, 206);
+    }
+    #discussionLinks{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2vh;
+    }
+    #discussionLinks a{
+        margin: 0 1vw;
+    }
+    .button-two{
+        padding: 1vh 2.5vh;
+        font-size: 2vh;
+        font-family:  sans-serif;
+        font-weight: 400;
+    }
+    footer{
+        
+    }
+    #secondaryLogo{
+       display: none;
+    }
+    .section-two-content{
+        font-size: 2.2vh;
+        padding: 2vh 4vh;
+    }
+    .section-two-content span{
+        font-size: 3vh;
+    }
+}
