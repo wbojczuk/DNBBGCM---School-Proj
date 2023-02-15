@@ -16,7 +16,6 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="./js/nav.js" defer></script>
     <script src="./js/calendar.js" defer></script>
-    
 </head>
 <body>
     <div id="pageID" data-pageid="schedule"></div>

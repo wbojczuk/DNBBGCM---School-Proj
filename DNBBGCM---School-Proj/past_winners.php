@@ -21,6 +21,12 @@
     
     <link rel="stylesheet" href="./css/dropdowninfo.css">
     <style>
+        body{
+  background-image: url('./img/loading.svg');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center 75%;
+}
 :root{
     --ddi-color: #0A2F59;
     --content-bg: rgb(207, 207, 207);
@@ -52,6 +58,14 @@ li::marker{
 }
 .li3::marker, .li4::marker, .li5::marker, .li6::marker, .li7::marker, .li8::marker, .li9::marker{
     content: attr(data-count)"th. ";
+}
+.section-two{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+  body{
+    background-position: center;
+  }
 }
     </style>
 </head>

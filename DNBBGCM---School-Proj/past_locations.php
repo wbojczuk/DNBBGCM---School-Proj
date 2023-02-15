@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="./css/dropdowninfo.css">
     
     <style>
+        body{
+  background-image: url('./img/loading.svg');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center 75%;
+}
         :root{
     --ddi-color: #0A2F59;
     --content-bg: rgb(207, 207, 207);
@@ -34,6 +40,14 @@
 .dropdown-info-content{
     background-color: rgb(245,245,245);
     font-weight: bold;
+}
+.section-two{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+  body{
+    background-position: center;
+  }
 }
     </style>
 </head>

@@ -1,5 +1,5 @@
 <nav id="mainNav">
-    <a id="homeLink" href="./index.php">Home</a>
+    <a id="homeLink" href="./">Home</a>
     <a id="galleryLink" href="./gallery.php">Gallery</a>
     <a id="scheduleLink" href="./schedule.php">Schedule</a>
     <a href="./general_information.php" id="informationLink">Information</a>

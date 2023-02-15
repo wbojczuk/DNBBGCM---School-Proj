@@ -86,11 +86,11 @@ body{
     background-color: rgba(0,0,0,0.9);
     text-align: center;
     transition: bottom 0.3s ease-in-out;
-    user-select: none;
+    user-select: all;
     cursor: pointer;
   }
   .photo-gallery-img-title::after{
-    content: "(Click to copy)";
+    content: "(Click to Select)";
     position: absolute;
     bottom:20%;
     left:0;
@@ -153,6 +153,7 @@ padding-bottom:0.5%;
         height: 40%;
       }
       .photo-gallery-img-title::after{
+        content: "(Tap to Select)";
         font-size: 1.5vh;
       }
       .picture-gallery-desc{

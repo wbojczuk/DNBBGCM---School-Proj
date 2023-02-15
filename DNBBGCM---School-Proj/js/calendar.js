@@ -11,7 +11,8 @@ const calendarObj = {
     eventExpandedHover: false,
     plannedEvents: [],
     init: ()=>{
-
+        document.getElementById("calendarWrapper").style.display = "inline-block";
+        document.getElementsByTagName("body")[0].style.backgroundImage = "none";
         // CONVERT MONTHS TO NUMBERS
         const monthNames = ["January", "February", "March", "April", "May", "June",
                             "July", "August", "September", "October", "November", "December"
@@ -20,12 +21,13 @@ const calendarObj = {
         const eventMonths = [];
 
         // Auto Close Event Expanded Listeners
+        const eventExpanded = document.getElementById('eventExpanded');
         const eventExpandedExit = document.getElementById('eventExpandedExit');
         eventExpandedExit.addEventListener("click", calendarObj.expandEventsExit);
-        eventExpandedExit.addEventListener("mouseenter", ()=>{
+        eventExpanded.addEventListener("mouseenter", ()=>{
             calendarObj.eventExpandedHover = true;
         });
-        eventExpandedExit.addEventListener("mouseleave", ()=>{
+        eventExpanded.addEventListener("mouseleave", ()=>{
             calendarObj.eventExpandedHover = false;
         });
         window.addEventListener("click", ()=>{
@@ -99,9 +101,9 @@ const calendarObj = {
         tempTitle.className = "calendar-grid-item-title";
         const calendarFragment = document.createDocumentFragment();
 
-        // Fill Fragment with needed blanks
-        console.log(month)
-        const firstOfMonth = new Date(`${year}-0${month + 1}-01T00:00:00`);
+        // Fill Fragment with needed blanks (FRONT)
+        let tempMonth = (month >= 9) ? (month + 1) : `0${month + 1}`;
+        const firstOfMonth = new Date(`${year}-${tempMonth}-01T00:00:00`);
         for(let i = firstOfMonth.getDay(); i > 0; --i){
             calendarFragment.appendChild(tempDay.cloneNode(false));
         }
@@ -138,6 +140,11 @@ const calendarObj = {
             });
 
             calendarFragment.appendChild(curDay);
+        }
+        // Fill Fragment with needed blanks (Back)
+        const lastOfMonth = new Date(`${year}-${tempMonth}-${daysInMonth}T00:00:00`);
+        for(let i = lastOfMonth.getDay(); i < 6; ++i){
+            calendarFragment.appendChild(tempDay.cloneNode(false));
         }
         calenderContainer.appendChild(calendarFragment);
 
@@ -190,11 +197,11 @@ const calendarObj = {
         eventExpanded.style.display = "inline-block";
         calendarObj.eventExpanded = true;
     },
-    expandEventsExit: (evt)=>{
+    expandEventsExit: ()=>{
         document.getElementById('eventExpanded').style.display = "none";
     calendarObj.eventExpanded = false;
     }
     
 }
 // Get JSON DATA
-fetch("./js/eventdata.json").then((res)=>res.json()).then((data)=>{calendarObj.plannedEvents = data; calendarObj.init();})
+fetch("./js/eventdata.json", {headers: {"Cache-Control": "no-cache"}}).then((res)=>res.json()).then((data)=>{calendarObj.plannedEvents = data; calendarObj.init();})

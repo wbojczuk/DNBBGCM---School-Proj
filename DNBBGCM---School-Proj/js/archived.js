@@ -7,7 +7,8 @@ let PASTLOCATIONS;
 let PASTWINNERS;
 const archivedObj = {
     init: ()=>{
-
+        document.getElementsByTagName("body")[0].style.backgroundImage = "none";
+        document.querySelector(".section-two").style.display = "inline-block";
         const wrapper = document.querySelector(".dropdown-info-wrapper");
         // IF VIEWING PAST LOCATIONS
         if(document.querySelector(".page-header").textContent == "Past Locations"){

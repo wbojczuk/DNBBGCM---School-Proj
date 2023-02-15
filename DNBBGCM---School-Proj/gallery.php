@@ -26,6 +26,7 @@
  <!-- NAV BAR FROM PHP -->
  <?php include("./inc/inc_nav.php"); ?>
     </div>
+    
 
    <!-- IF THE YEAR HAS BEEN SELECTED-->
 <?php if(isset($_GET["year"])){?>

@@ -54,10 +54,6 @@ const photoGalleryObj = {
                     const imgTitle = `${elem.dataset.src}`.match(/(IMG|CRW|DSC|[0-9]{1,})_[0-9]{1,}/i)[0];
                     imgTitleElem.textContent = imgTitle;
                     // Event listener to copy photo id to clipboard
-                    imgTitleElem.addEventListener("click", ()=>{
-                        navigator.clipboard.writeText(imgTitle);
-                        alert("Copied the ID!");
-                    })
                 }else{
                     imgTitleElem.remove();
                 }

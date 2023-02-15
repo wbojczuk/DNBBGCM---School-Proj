@@ -99,6 +99,7 @@ if(!isset($_SESSION["login"])){
                 $current_event->eventDescription = $_POST["eventDesc"];
                 $current_event->id = $_POST["id"];
                 $current_event->timeStamp = strtotime($_POST["eventDate"]);
+                usort($current_day->events, fn($a, $b) => strcmp(unformat_times($a->startTime),unformat_times($b->startTime)));
                 }
             }else{
                 $current_elem = count($content);
@@ -129,6 +130,7 @@ if(!isset($_SESSION["login"])){
                 $current_event->endTime = get_formatted_times($_POST["eventTime2"]);
                 $current_event->eventDescription = $_POST["eventDesc"];
                 $current_event->id = $_POST["id"];
+                usort($content[$_POST["dayindex"]]->events, fn($a, $b) => strcmp(unformat_times($a->startTime),unformat_times($b->startTime)));
                 file_put_contents("../js/eventdata.json", json_encode($content));
         }
     }
@@ -176,6 +178,14 @@ if(!isset($_SESSION["login"])){
             $pm_or_am = "am";
         }
         return "$hours:$minutes$pm_or_am";
+    }
+    function unformat_times($time){
+        $current_time = str_replace("/pm|am/", "", $time);
+        $current_time = (int)str_replace(":", "", $current_time);
+        if(preg_match("/pm/", $time)){
+            $current_time += 12;
+        }
+        return($current_time);
     }
     include("inc_footer.html");
     ?>

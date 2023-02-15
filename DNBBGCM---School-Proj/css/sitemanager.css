@@ -280,6 +280,7 @@ div.center:has(#addPhotoInput){
     font-weight: 400;
     color: white;
     margin-left: 2vw;
+    margin-right: 10%;
 }
 
 .event-edit-wrapper{

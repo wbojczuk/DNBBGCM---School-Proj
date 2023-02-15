@@ -15,7 +15,6 @@ const dropdownInfoObj = {
                 const content = item.querySelector(".dropdown-info-content");
                 let contentOpen = false;
                 let itemActive = true;
-                console.log(allItems)
                 item.addEventListener("mouseenter", ()=>{
                     itemActive = true;
                 });
