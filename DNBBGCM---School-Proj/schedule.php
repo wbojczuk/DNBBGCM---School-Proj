@@ -20,6 +20,8 @@
 <body>
     <div id="pageID" data-pageid="schedule"></div>
 
+    <div id="backgroundFade"></div>
+
 <div id="topWrapper">
     <!-- Logo -->
     <?php include("./inc/inc_logo.php"); ?>

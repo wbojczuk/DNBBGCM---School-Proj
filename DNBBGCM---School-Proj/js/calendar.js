@@ -168,6 +168,7 @@ const calendarObj = {
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
         ];
+        
         const eventExpanded = document.getElementById('eventExpanded');
         const eventExpandedContent = document.getElementById('eventExpandedContent');
         eventExpandedContent.innerHTML = "";
@@ -181,7 +182,8 @@ const calendarObj = {
         const eventExpandedTitle = document.createElement("h2");
         eventExpandedTitle.textContent = `${monthNames[dayObj.month]} ${dayObj.day}, ${dayObj.year}`;
         eventExpandedFragment.appendChild(eventExpandedTitle);
-
+        document.getElementById("backgroundFade").style.display = "inline-block";
+        document.getElementsByTagName("body")[0].style.overflowY = "hidden";
         const eventsLength = dayObj.events.length;
         for(let i = 0; i < eventsLength; ++i){
             const curEventItem = tempEventItem.cloneNode(false);
@@ -200,6 +202,8 @@ const calendarObj = {
     expandEventsExit: ()=>{
         document.getElementById('eventExpanded').style.display = "none";
     calendarObj.eventExpanded = false;
+    document.getElementById("backgroundFade").style.display = "none";
+    document.getElementsByTagName("body")[0].style.overflowY = "auto";
     }
     
 }

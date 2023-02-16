@@ -18,6 +18,14 @@
      <script src="./js/dropdowninfo.js" defer></script>
      
  </head>
+ <style>
+    /* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    .last-section{
+        padding-bottom: 10vh;
+    }
+}
+ </style>
  <body>
      <div id="pageID" data-pageid="information"></div>
  
@@ -150,7 +158,7 @@
             </div>
             <!-- END FAQS -->
     </section>
-    <section class="section-two">
+    <section class="section-two last-section">
         <div class="center">
             <h2 class="section-two-header">Qualification</h2>
         </div>
